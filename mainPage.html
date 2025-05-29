@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href='/style-main.css' rel="stylesheet" />
+<title>Производственный план</title>
+</head>
+<body>
+
+<h1>Производственный план</h1>
+
+<div class="wrapper">
+<!-- Вкладки -->
+<div class="tabs">
+  <button class="tab active" onclick="activateTab(event,'plan1')">Производственный План</button>
+  <button class="tab" onclick="activateTab(event,'plan2')">Другой план</button>
+</div>
+
+<!-- Контент вкладок -->
+<div id="tab-content">
+ <!-- Первая вкладка -->
+ <div id="plan1">
+ <div class="plan-container">
+   <!-- aside с кнопками годов -->
+   <aside>
+     <button class="year-btn active" data-year="2020" onclick="selectYear(this)">2020</button>
+     <button class="year-btn" data-year="2021" onclick="selectYear(this)">2021</button>
+     <button class="year-btn" data-year="2022" onclick="selectYear(this)">2022</button>
+     <button class="year-btn" data-year="2023" onclick="selectYear(this)">2023</button>
+     <button class="year-btn" data-year="2024" onclick="selectYear(this)">2024</button>
+     <button class="year-btn" data-year="2025" onclick="selectYear(this)">2025</button>
+   </aside>
+
+   <!-- main с таблицей -->
+   <main>
+     <table id="year-table">
+       <thead>
+         <tr>
+           <th>Колонка 1</th>
+           <th>Колонка 2</th>
+           <th>Колонка 3</th>
+         </tr>
+       </thead>
+       <tbody id="table-body">
+         <!-- Данные будут вставляться через JS -->
+       </tbody>
+     </table>
+   </main>
+ </div>
+ </div>
+
+ <!-- Вторая вкладка "Другой план", аналогичная по структуре -->
+<div id="plan2" style="display:none;">
+  <div class="plan-container">
+ <!-- aside с кнопками годов -->
+    <aside>
+        <button class="year-btn active" data-year="2019" onclick="selectYear(this,'plan2')">2019</button>
+        <button class="year-btn" data-year="2020" onclick="selectYear(this,'plan2')">2020</button>
+        <button class="year-btn" data-year="2021" onclick="selectYear(this,'plan2')">2021</button>
+        <button class="year-btn" data-year="2022" onclick="selectYear(this,'plan2')">2022</button>
+    </aside>
+ <!-- main с таблицей -->
+<main>
+  <table id='other-table'>
+    <thead>
+      <tr>
+        <th>Параметр А</th>
+        <th>Параметр Б</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</main></div></div>
+
+<script>
+// Переключение вкладок
+function activateTab(evt, tabId) {
+ const tabs = document.querySelectorAll('.tab');
+ const contents = document.querySelectorAll('#tab-content > div');
+
+ tabs.forEach(t => t.classList.remove('active'));
+ contents.forEach(c => c.style.display='none');
+
+ evt.currentTarget.classList.add('active');
+ document.getElementById(tabId).style.display='block';
+
+ // Если переключились на план1 — сбросить выбор года и показать таблицу для текущего года
+ if (tabId==='plan1') {
+   // активировать кнопку года по умолчанию (например, первый)
+   const buttons = document.querySelectorAll('.year-btn');
+   buttons.forEach(b => b.classList.remove('active'));
+   
+   // активировать кнопку для года по умолчанию (например, первый)
+   if (buttons.length >0) {
+     buttons[0].classList.add('active');
+     loadTable(buttons[0].dataset.year);
+ }
+ }
+}
+
+// Обработка выбора года
+function selectYear(btn, plan='plan1') {
+ const selector = plan==='plan1' ? '.year-btn' : '#'+plan+' .year-btn';
+ const buttons = document.querySelectorAll(selector);
+ buttons.forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+
+ const year = btn.dataset.year;
+
+ if(plan==='plan1'){
+     loadTable(year);
+ } else if(plan==='plan2'){
+     loadOtherTable(year);
+ }
+}
+
+// Функция для загрузки данных первой таблицы
+function loadTable(year) {
+ const tbody = document.getElementById('table-body');
+ tbody.innerHTML=''; // очистить
+
+ // Генерируем пример данных
+ for(let i=1;i<=5;i++) { // например, пять строк
+   const row = document.createElement('tr');
+   
+   const cell1 = document.createElement('td');
+   cell1.textContent=`${year} - Значение ${i}A`;
+   
+   const cell2 = document.createElement('td');
+   cell2.textContent=`${year} - Значение ${i}B`;
+   
+   const cell3 = document.createElement('td');
+   cell3.textContent=`${year} - Значение ${i}C`;
+   
+   row.appendChild(cell1);
+   row.appendChild(cell2);
+   row.appendChild(cell3);
+   
+   tbody.appendChild(row);
+ }
+}
+
+// Функция для загрузки данных второй таблицы
+function loadOtherTable(year) {
+ const tbody=document.querySelector('#other-table tbody');
+ tbody.innerHTML=''; // очистить
+
+ // Генерируем пример данных
+ for(let i=1;i<=4;i++){
+     const row=document.createElement('tr');
+
+     const paramA=document.createElement('td');
+     paramA.textContent=`Параметр А ${i} (${year})`;
+
+     const paramB=document.createElement('td');
+     paramB.textContent=`Параметр Б ${i} (${year})`;
+
+     row.appendChild(paramA);
+     row.appendChild(paramB);
+
+     tbody.appendChild(row);
+ }
+}
+
+// Инициализация при загрузке страницы
+window.onload=function() {
+ // активировать первый год по умолчанию в первой вкладке
+ const firstBtn=document.querySelector('.tab.active').nextElementSibling?.querySelector('.year-btn') || document.querySelector('.tab.active').nextElementSibling?.querySelector('.year-btn');
+
+ // Для первой вкладки
+ if(firstBtn){
+     firstBtn.classList.add('active');
+     loadTable(firstBtn.dataset.year);
+ }
+
+ // Для второй вкладки — активировать первый год
+const secondTabButtons=document.querySelectorAll('#plan2 .year-btn');
+if(secondTabButtons.length>0){
+ secondTabButtons[0].classList.add('active');
+ loadOtherTable(secondTabButtons[0].dataset.year);
+}
+};
+</script>

@@ -1,0 +1,83 @@
+/* Цвет и шрифт */
+
+body {
+    background-color: rgb(186, 204, 191);
+    font-family: 'Asap', sans-serif;
+}
+
+/* Форма авторизации */
+
+.login {
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+
+.login::before,
+.login::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+}
+
+.login::before {
+    left: calc(50%);
+    bottom: -130%;
+    background-color: rgba(69,105,144,0.15); /* $blueQueen с прозрачностью */
+}
+
+.login::after {
+    left: 35%;
+    bottom: -125%;
+}
+
+/* Внутренние input */
+.login > input {
+    font-family:'Asap', sans-serif; /* $fontAsap */
+    display:block;
+    border-radius:5px;
+    border-color: black;
+    font-size:16px;
+    background:white;
+    width: 100%;
+    border: black solid 1px;
+    padding: 10px;
+    margin: 15px -10px; /* Обратный отступ для соответствия оригиналу */
+}
+
+/* Кнопка внутри .login */
+.login > button {
+    font-family: 'Asap', sans-serif; /* $fontAsap */
+    cursor: pointer;
+    color:#fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: auto;
+    max-width: 80px; 
+    border: none;
+    padding: 10px 7px; 
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color:#f45b69;
+    transition: bg-color .3s;
+}
+
+.login > button:hover {
+ background-color:#e04a60;
+}
+
+/* Форма для заполнения */
