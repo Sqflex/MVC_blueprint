@@ -23,7 +23,7 @@
                 <div class="tabs mb-4">
                     <button
                         class="px-6 py-3 bg-primary-600 text-white 
-                        font-medium rounded-t-lg transition-all hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">
+                        font-medium rounded-t-lg transition-all bg-gray-300 active focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">
                         Демографическая статистика
                     </button>
                     <button
@@ -31,47 +31,52 @@
                         font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                         Экономическая статистика
                     </button>
+                    <button
+                        class="px-6 py-3 bg-gray-200 text-gray-700
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                        Многоотраслевая статистика
+                    </button>
                 </div>
-                <div class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
-                    <aside class="w-[30%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto">
+                <div class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
                         <div class="mb-6">
-                            <h2 class="text-xl font-semibold mb-4 text-gray-800">Года производственных планирований</h2>
-                            <div class="space-y-3">
+                            <h2 class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
+                            <div class="space-y-3 grid">
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2020</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2020</button>
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2021</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2021</button>
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2022</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2022</button>
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2023</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 active">2023</button>
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2024</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2024</button>
                                 <button
-                                class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2025</button>
+                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
                             </div>
                         </div>
-                        <div class="mt-8">
+                        <div class="mt-8 add-button-section">
                             <button
-                                class="w-full py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2"
+                                class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2"
                             >
                                 <span class="material-symbols-outlined">add</span> Добавить год
                             </button>
                         </div>
-                    </aside>
-                    <main class="w-[70%] p-6 overflow-y-auto">
+                    </div>
+                <div class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
+                    <main class="w-[100%] p-6 overflow-y-auto">
                         <div class="flex justify-between items-center mb-6">
                             <h2 class="text-2xl font-bold text-gray-800">Производственный план 2023</h2>
                             <div class="flex gap-3">
@@ -114,21 +119,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="hover:bg-gray-50 transition-colors">
+                                    <tr class="hover:bg-gray-50 transition-colors t-row">
                                         <td class="py-4 px-6 border-b border-gray-200 text-sm">1</td>
-                                        <td class="py-4 px-6 border-b border-gray-200">
-                                            <input
-                                                type="text"
-                                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                                                value="1-нас (Чернобыль)"
-                                            />
+                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field"
+                                                    role="textbox"
+                                                    contenteditable>
+                                                1-нас (Чернобыль)
+                                                </span>
+                                            </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
-                                            <input
-                                                type="text"
-                                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                                                value="Данные о численности населения, проживающего в зонах радиоактивного загрязнения"
-                                            />
+                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class=""
+                                                    role="textbox"
+                                                    contenteditable>
+                                                Данные о численности населения, проживающего в зонах радиоактивного загрязнения
+                                                </span>
+                                            </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
                                             <input
