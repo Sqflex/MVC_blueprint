@@ -99,7 +99,7 @@ sup {
 }
 table {
     border-collapse: collapse;
-    border-color: inherit;
+    border: 1px solid rgb(55 65 81 / var(--tw-text-opacity));
     text-indent: 0;
 }
 button,
@@ -359,7 +359,7 @@ video {
     height: calc(100vh - 220px);
 }
 #webcrumbs .h-screen {
-    height: 100vh;
+    height: 100%;
 }
 #webcrumbs .w-\[1200px\] {
     width: 100%;
@@ -749,12 +749,9 @@ video {
 body {
     line-height: inherit;
     padding: 24px;
-    display: flex;
-    flex-direction: column;
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
     align-items: center;
-    justify-content: center;
     background: linear-gradient(135deg, #ffffff, #d4d4d4);
 }
 
@@ -776,12 +773,31 @@ body {
     justify-content: center;
 }
 
-.flex-box {
+.add-button-section {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.add-button {
+    width: 100%;
 }
 
 .button-margin {
     margin: auto 8px;
 }
 
+table td, table tr, table th {
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+span .input-field {
+    min-width: 50%;
+    cursor: pointer;
+}
+
+span:focus {
+    border: none;
+    outline: none;
+}
