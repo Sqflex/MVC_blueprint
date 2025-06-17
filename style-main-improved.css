@@ -789,7 +789,7 @@ body {
 
 table td, table tr, table th {
     border-collapse: collapse;
-    border: 1px solid gray;
+    border: 1px solid rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 span .input-field {
@@ -800,4 +800,9 @@ span .input-field {
 span:focus {
     border: none;
     outline: none;
+}
+
+thead tr, thead th, thead{
+    position: sticky;
+    top: -25px;
 }
