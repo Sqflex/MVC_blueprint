@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Производственный план</title>
         <link href='./style-main-improved.css' rel="stylesheet"/>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div id="webcrumbs">
@@ -38,9 +39,17 @@
                     </button>
                 </div>
                 <div class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
-                        <div class="mb-6">
-                            <h2 class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
-                            <div class="space-y-3 grid">
+                        <div id="year-section" class="mb-6">
+                            <div class="section-title">
+                                <h2 id="current-year" class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
+                                <span class="resize-buttons">
+                                    <span class="min">
+                                        <img src="./resources/img/minimaze-icon.png" alt="Свернуть">
+                                    </span>
+                                    <span class="max"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
+                                </span>
+                            </div>
+                            <div id="year-buttons" class="space-y-3 grid">
                                 <button
                                 class="w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                     transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
@@ -67,7 +76,7 @@
                                     focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
                             </div>
                         </div>
-                        <div class="mt-8 add-button-section">
+                        <div id="add-year-button-section" class="mt-8">
                             <button
                                 class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg 
                                 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2 add-button"
@@ -653,10 +662,26 @@
                         </div>
                     </main>
                 </div>
-                <footer class="mt-6 text-center text-gray-500 text-sm">
+                <!-- <footer class="mt-6 text-center text-gray-500 text-sm">
                     <p>   </p>
-                </footer>
+                </footer> -->
             </div>
         </div>
+        <script>
+            jQuery(document).ready(function($){
+                $(document).on('click', '.min', function(){
+                    $('#year-buttons').css("display", "none");
+                    $('#add-year-button-section').css("display", "none");
+                    $('#year-section').removeClass();
+                    var currentYear = $('#year-buttons').children('.active').text();
+                    $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
+                });
+                
+                $(document).on('click', '.max', function(){
+                    $(this).closest('.modal').find('.content').slideDown();
+                    $(this).closest('.modal').animate({'left':'20px','bottom':'50%'});
+                });
+            });
+        </script>
     </body>
 </html>

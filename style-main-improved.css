@@ -773,7 +773,7 @@ body {
     justify-content: center;
 }
 
-.add-button-section {
+#add-year-button-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -805,4 +805,19 @@ span:focus {
 thead tr, thead th, thead{
     position: sticky;
     top: -25px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resize-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.min:hover, .max:hover {
+    cursor: pointer;
 }
