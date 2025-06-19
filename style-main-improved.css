@@ -405,7 +405,7 @@ video {
     margin-left: calc(12px * (1 - var(--tw-space-x-reverse)));
     margin-right: calc(12px * var(--tw-space-x-reverse));
 }
-#webcrumbs :is(.space-y-3 > :not([hidden]) ~ :not([hidden])) {
+#webcrumbs :is(.space-y-3 > :not([hidden]) ~ :not([hidden])), .space-y-3 > :not([hidden]):is(:first-child)  {
     --tw-space-y-reverse: 0;
     margin-bottom: calc(12px * var(--tw-space-y-reverse));
     margin-top: calc(12px * (1 - var(--tw-space-y-reverse)));
@@ -770,7 +770,6 @@ body {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-content: center;
 }
 
 #add-year-button-section {
@@ -818,6 +817,6 @@ thead tr, thead th, thead{
     justify-content: flex-end;
 }
 
-.min:hover, .max:hover {
+.min-year:hover, .max-year:hover, .min-sector:hover, .max-sector:hover {
     cursor: pointer;
 }
