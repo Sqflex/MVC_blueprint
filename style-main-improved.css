@@ -352,11 +352,11 @@ video {
 #webcrumbs .mt-8 {
     margin-top: 32px;
 }
-#webcrumbs .flex {
+.flex {
     display: flex;
 }
 #webcrumbs .h-\[calc\(100vh-220px\)\] {
-    height: calc(100vh - 220px);
+    height: 95vh;
 }
 #webcrumbs .h-screen {
     height: 100%;
@@ -819,4 +819,32 @@ thead tr, thead th, thead{
 
 .min-year:hover, .max-year:hover, .min-sector:hover, .max-sector:hover {
     cursor: pointer;
+}
+
+#chapters-wrapper {
+    display: none;
+}
+
+#years-wrapper {
+    display: none;
+}
+
+#table-wrapper {
+    display: none;
+}
+
+.text-sm-table {
+    font-size: 12px;
+    line-height: 16px;
+    border: 1px solid rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.px-6-table {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.py-3-table {
+    padding-bottom: 4px;
+    padding-top: 4px;
 }

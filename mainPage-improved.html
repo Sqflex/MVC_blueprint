@@ -24,7 +24,7 @@
                 <div id="main-stats" class="tabs mb-4">
                     <button
                         class="main-btn px-6 py-3 bg-gray-200 text-gray-700
-                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 active">
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                         Демографическая статистика
                     </button>
                     <button
@@ -38,14 +38,11 @@
                         Многоотраслевая статистика
                     </button>
                 </div>
-                <div class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
+                <div id="chapters-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
                     <div id="chapter-section" class="mb-6">
                         <div class="section-title">
                             <h2 id="current-chapter" class="text-xl font-semibold mb-2 text-gray-800">Главы статистики</h2>
                             <span class="resize-buttons">
-                                <span class="min-chapter">
-                                    <img src="./resources/img/minimaze-icon.png" alt="Свернуть">
-                                </span>
                                 <span class="max-chapter"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
                             </span>
                         </div>
@@ -65,7 +62,7 @@
                             <button
                             class="chapter-btn w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                 transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 active">Статистика денежных доходов населения</button>
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">Статистика денежных доходов населения</button>
                             <button
                             class="chapter-btn w-[100%] py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
                                 transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
@@ -89,54 +86,51 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
-                        <div id="year-section" class="mb-6">
-                            <div class="section-title">
-                                <h2 id="current-year" class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
-                                <span class="resize-buttons">
-                                    <span class="min-year">
-                                        <img src="./resources/img/minimaze-icon.png" alt="Свернуть">
-                                    </span>
-                                    <span class="max-year"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
-                                </span>
-                            </div>
-                            <div id="year-buttons" class="space-y-3 grid">
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2020</button>
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2021</button>
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2022</button>
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 active">2023</button>
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2024</button>
-                                <button
-                                class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                    transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                    focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
-                            </div>
+                <div id="years-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
+                    <div id="year-section" class="mb-6">
+                        <div class="section-title">
+                            <h2 id="current-year" class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
+                            <span class="resize-buttons">
+                                <span class="max-year"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
+                            </span>
                         </div>
-                        <div id="add-year-button-section" class="mt-8">
+                        <div id="year-buttons" class="space-y-3 grid">
                             <button
-                                class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg 
-                                focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2 add-button"
-                            >
-                                <span class="material-symbols-outlined">add</span> Добавить год
-                            </button>
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2020</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2021</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2022</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2023</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2024</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
                         </div>
                     </div>
-                <div class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div id="add-year-button-section" class="mt-8">
+                        <button
+                            class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg 
+                            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2 add-button"
+                        >
+                            <span class="material-symbols-outlined">add</span> Добавить год
+                        </button>
+                    </div>
+                </div>
+                <div id="table-wrapper" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
                     <main class="w-[100%] p-6 overflow-y-auto">
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Производственный план</h2>
@@ -162,46 +156,46 @@
                             <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <thead class="sticky-head">
                                     <tr class="bg-gray-100">
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             № п/п</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup">
                                             Основной источник формирования официальной статистической информации
                                             (индекс формы, иной источник)
                                         </th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Наименование работы
                                     и периодичность ее 
                                     выполнения</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Дополнительный источник формирования официальной статистической информации</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="3"  colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6 text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3"  colspan="1" scope="colgroup">
                                             Срок представления респондентами первичных статистических данных (дата, число, день)</th>
-                                        <th class="py-3 px-6 text-center text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="6" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="6" scope="colgroup">
                                             Выполнение работы</th>
-                                        <th class="py-3 px-6 text-center text-sm font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Действия
                                         </th>
                                     </tr>
                                     <tr class="bg-gray-100">
-                                        <th class="py-3 px-6 text-center text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             отделами статистики ГСУ</th>
-                                        <th class="py-3 px-6 text-center text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             ГСУ</th>
-                                        <th class="py-3 px-6 text-center text-sm font-semibold text-gray-700 border-b" rowspan="1" scope="col" colspan="4">
+                                        <th id="table-head" class="py-3-table px-6-table text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" scope="col" colspan="4">
                                             Белстатом</th>
                                     </tr>
                                     <tr class="bg-gray-100">
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             срок передачи в ГСУ (окончания обработки в ЕИСГС) (дата, число, день)</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             срок передачи в Белстат (окончания обработки в ЕИСГС) (дата, число, день)</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             дата, число, день</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             разрез разработки</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             наименование структурного подразделения Белстата, которому представляются агрегированные первичные статистические данные</th>
-                                        <th class="py-3 px-6 text-left text-sm font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
+                                        <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1">
                                             результат выполнения работы (срок выпуска статистического издания или иной информации) (дата, число, день)</th>
                                     </tr>
                                 </thead>
@@ -721,28 +715,13 @@
         <script>
             jQuery(document).ready(function($){
 
-                /* ------- Свернуть/развернуть разделы глав и годов ----------------- */
-
-                $(document).on('click', '.min-chapter', function(){
-                    $('#chapter-buttons').css("display", "none");
-                    $('#chapter-section').removeClass();
-                    let currentChapter = $('#chapter-buttons').children('.active').text();
-                    $('#current-chapter').html($('#current-chapter').html().replace("Главы статистики", "Текущая глава статистики - " + currentChapter));
-                });
+                /* ------- Развернуть разделы глав и годов ----------------- */
                 
                 $(document).on('click', '.max-chapter', function(){
                     $('#chapter-buttons').css("display", "grid");
                     $('#chapter-section').addClass('mb-6');
                     let currentChapter = $('#chapter-buttons').children('.active').text();
                     $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
-                });
-
-                $(document).on('click', '.min-year', function(){
-                    $('#year-buttons').css("display", "none");
-                    $('#add-year-button-section').css("display", "none");
-                    $('#year-section').removeClass();
-                    let currentYear = $('#year-buttons').children('.active').text();
-                    $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
                 });
                 
                 $(document).on('click', '.max-year', function(){
@@ -758,20 +737,51 @@
                 $('#main-stats .main-btn').on('click', function() {
                     $('#main-stats .main-btn').removeClass('active');
                     $(this).addClass('active');
-                });
+                    $('#chapters-wrapper').css('display', 'block');
+                    $('#years-wrapper').css('display', 'none');
+                    $('#table-wrapper').css('display', 'none');
+                    /* -------- reset -------- */
+                    let currentChapter = $('#chapter-buttons').children('.active').text();
+                    $('#chapter-buttons .chapter-btn').removeClass('active');
+                    $('#chapter-buttons').css("display", "grid");
+                    $('#chapter-section').addClass('mb-6');
+                    $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
 
-                $('#year-buttons .year-btn').on('click', function() {
+                    let currentYear = $('#year-buttons').children('.active').text();
                     $('#year-buttons .year-btn').removeClass('active');
-                    $(this).addClass('active');
+                    $('#year-buttons').css("display", "grid");
+                    $('#add-year-button-section').css("display", "flex");
+                    $('#year-section').addClass('mb-6');
+                    $('#current-year').html($('#current-year').html().replace("Текущий год производственного планирования - " + currentYear, "Года производственных планирований"));
                 });
 
                 $('#chapter-buttons .chapter-btn').on('click', function() {
                     $('#chapter-buttons .chapter-btn').removeClass('active');
                     $(this).addClass('active');
+                    $('#years-wrapper').css('display', 'block');
+                    $('#table-wrapper').css('display', 'none');
+                    /* -------- Свернуть главы -------- */
+                    $('#chapter-buttons').css("display", "none");
+                    $('#chapter-section').removeClass();
+                    let currentChapter = $('#chapter-buttons').children('.active').text();
+                    $('#current-chapter').html($('#current-chapter').html().replace("Главы статистики", "Текущая глава статистики - " + currentChapter));
                 });
 
-                $
-            });
+                $('#year-buttons .year-btn').on('click', function() {
+                    $('#year-buttons .year-btn').removeClass('active');
+                    $(this).addClass('active');
+                    $('#table-wrapper').css('display', 'flex');
+                    /* ------- Свернуть года -------- */
+                    $('#year-buttons').css("display", "none");
+                    $('#add-year-button-section').css("display", "none");
+                    $('#year-section').removeClass();
+                    let currentYear = $('#year-buttons').children('.active').text();
+                    $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
+                    $('html, body').animate({
+                        scrollTop: $("#table-wrapper").offset().top
+                        }, 1000);
+                    });
+                });
         </script>
     </body>
 </html>
