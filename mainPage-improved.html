@@ -38,7 +38,51 @@
                         Многоотраслевая статистика
                     </button>
                 </div>
-                <div id="chapters-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
+                <div id="years-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
+                    <div id="year-section" class="mb-6">
+                        <div class="section-title">
+                            <h2 id="current-year" class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
+                            <span class="resize-buttons">
+                                <span class="max-year"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
+                            </span>
+                        </div>
+                        <div id="year-buttons" class="space-y-3 grid">
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2020</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2021</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2022</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2023</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2024</button>
+                            <button
+                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
+                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
+                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
+                        </div>
+                    </div>
+                    <div id="add-year-button-section" class="mt-8">
+                        <button
+                            class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg 
+                            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2 add-button"
+                        >
+                            <span class="material-symbols-outlined">add</span> Добавить год
+                        </button>
+                    </div>
+                </div>
+                                <div id="chapters-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
                     <div id="chapter-section" class="mb-6">
                         <div class="section-title">
                             <h2 id="current-chapter" class="text-xl font-semibold mb-2 text-gray-800">Главы статистики</h2>
@@ -86,50 +130,6 @@
                         </div>
                     </div>
                 </div>
-                <div id="years-wrapper" class="w-[100%] bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto mb-4">
-                    <div id="year-section" class="mb-6">
-                        <div class="section-title">
-                            <h2 id="current-year" class="text-xl font-semibold mb-2 text-gray-800">Года производственных планирований</h2>
-                            <span class="resize-buttons">
-                                <span class="max-year"><img src="./resources/img/resize-icon.png" alt="Развернуть"></span>
-                            </span>
-                        </div>
-                        <div id="year-buttons" class="space-y-3 grid">
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2020</button>
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2021</button>
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2022</button>
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none 
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100">2023</button>
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2024</button>
-                            <button
-                            class="year-btn buttom-width-height-year py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700
-                                transition-all hover:bg-primary-50 hover:border-primary-300 hover:transform hover:scale-[1.02] focus:outline-none
-                                focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 active:bg-primary-100 button-margin">2025</button>
-                        </div>
-                    </div>
-                    <div id="add-year-button-section" class="mt-8">
-                        <button
-                            class="w-[100%] py-3 px-4 bg-green-600 text-white rounded-lg shadow-md font-medium transition-all hover:bg-green-700 hover:shadow-lg 
-                            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center gap-2 add-button"
-                        >
-                            <span class="material-symbols-outlined">add</span> Добавить год
-                        </button>
-                    </div>
-                </div>
                 <div id="table-wrapper" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
                     <main class="w-[100%] p-6 overflow-y-auto">
                         <div class="flex justify-between items-center mb-6">
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <div>
-                            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <table id="Prod-plan-table" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <thead class="sticky-head">
                                     <tr class="bg-gray-100">
                                         <th id="table-head" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
@@ -227,114 +227,112 @@
                                     <tr class="hover:bg-gray-50 transition-colors t-row">
                                         <td class="py-4 px-6 border-b border-gray-200 text-sm">3</td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <span 
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 1-нас (Чернобыль)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 Данные о численности населения, проживающего в зонах радиоактивного загрязнения
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 25 января
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 5 февраля (СД)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 24 февраля
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 10 марта
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 республика, области, районы, зоны загрязнения, возрастные группы
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                Р (10 марта) Б (15 марта)
+                                                    contenteditable="false">
+                                                РБ (10 марта) Б (15 марта)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 text-center">
                                             <div class="flex justify-center space-x-3">
                                                 <button
-                                                    class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                                                    id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">edit</span>
                                                 </button>
                                                 <button
-                                                    class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                    id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">delete</span>
                                                 </button>
@@ -344,22 +342,22 @@
                                     <tr class="hover:bg-gray-50 transition-colors">
                                         <td class="py-4 px-6 border-b border-gray-200 text-sm">4</td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 Записи актов о рождении, смерти, заключении, расторжении брака, врачебные свидетельства о смерти (мертворождении), 
                                                 учетные карточки сведений о расторгающих брак
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 Предварительные ежемесячные итоги зарегистрированных данных естественного движения населения
                                                 (таблицы В1, В2V, B2М, B2Т, B2S, B2F, B3-B6, CP, RP, Е1, Е2, МС, MCF, РС, TABLO)
                                                 месячная*
@@ -367,95 +365,89 @@
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    aria-placeholder=" "
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 до 6
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 6 (СД)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 16
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 text-center">
                                             <div class="flex justify-center space-x-3">
                                                 <button
-                                                    class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                                                    id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">edit</span>
                                                 </button>
                                                 <button
-                                                    class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                    id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">delete</span>
                                                 </button>
@@ -465,102 +457,94 @@
                                     <tr class="hover:bg-gray-50 transition-colors">
                                         <td class="py-4 px-6 border-b border-gray-200 text-sm">4.1</td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    aria-placeholder=" "
-                                                    contenteditable>
-                                                 
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 за январь-декабрь
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                 
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                 
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 республика, области, районы, зоны загрязнения, возрастные группы
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 Р (10 марта) Б (15 марта)
                                                 </span>
                                             </div>
@@ -568,12 +552,12 @@
                                         <td class="py-4 px-6 border-b border-gray-200 text-center">
                                             <div class="flex justify-center space-x-3">
                                                 <button
-                                                    class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                                                    id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">edit</span>
                                                 </button>
                                                 <button
-                                                    class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                    id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">delete</span>
                                                 </button>
@@ -583,101 +567,100 @@
                                     <tr class="hover:bg-gray-50 transition-colors">
                                         <td class="py-4 px-6 border-b border-gray-200 text-sm">2.1</td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 1-нас (Чернобыль)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false"="false">
                                                 Данные о численности населения, проживающего в зонах радиоактивного загрязнения
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
-                                                -
+                                                    contenteditable="false">
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 25 января
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 5 февраля (СД)
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 24 февраля
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 10 марта
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 республика, области, районы, зоны загрязнения, возрастные группы
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 -
                                                 </span>
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
                                                     class="input-field"
                                                     role="textbox"
-                                                    contenteditable>
+                                                    contenteditable="false">
                                                 Р (10 марта) Б (15 марта)
                                                 </span>
                                             </div>
@@ -685,14 +668,14 @@
                                         <td class="py-4 px-6 border-b border-gray-200 text-center">
                                             <div class="flex justify-center space-x-3">
                                                 <button
-                                                    class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                                                    id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
                                                 >
                                                     <span class="material-symbols-outlined text-sm">edit</span>
                                                 </button>
                                                 <button
-                                                    class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                    id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                                                 >
-                                                    <span class="material-symbols-outlined text-sm">delete</span>
+                                                    <span id="delete-row" class="material-symbols-outlined text-sm">delete</span>
                                                 </button>
                                             </div>
                                         </td>
@@ -737,49 +720,76 @@
                 $('#main-stats .main-btn').on('click', function() {
                     $('#main-stats .main-btn').removeClass('active');
                     $(this).addClass('active');
-                    $('#chapters-wrapper').css('display', 'block');
-                    $('#years-wrapper').css('display', 'none');
+                    $('#years-wrapper').css('display', 'block');
+                    $('#chapters-wrapper').css('display', 'none');
                     $('#table-wrapper').css('display', 'none');
                     /* -------- reset -------- */
-                    let currentChapter = $('#chapter-buttons').children('.active').text();
-                    $('#chapter-buttons .chapter-btn').removeClass('active');
-                    $('#chapter-buttons').css("display", "grid");
-                    $('#chapter-section').addClass('mb-6');
-                    $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
-
                     let currentYear = $('#year-buttons').children('.active').text();
                     $('#year-buttons .year-btn').removeClass('active');
                     $('#year-buttons').css("display", "grid");
                     $('#add-year-button-section').css("display", "flex");
                     $('#year-section').addClass('mb-6');
                     $('#current-year').html($('#current-year').html().replace("Текущий год производственного планирования - " + currentYear, "Года производственных планирований"));
-                });
 
-                $('#chapter-buttons .chapter-btn').on('click', function() {
-                    $('#chapter-buttons .chapter-btn').removeClass('active');
-                    $(this).addClass('active');
-                    $('#years-wrapper').css('display', 'block');
-                    $('#table-wrapper').css('display', 'none');
-                    /* -------- Свернуть главы -------- */
-                    $('#chapter-buttons').css("display", "none");
-                    $('#chapter-section').removeClass();
                     let currentChapter = $('#chapter-buttons').children('.active').text();
-                    $('#current-chapter').html($('#current-chapter').html().replace("Главы статистики", "Текущая глава статистики - " + currentChapter));
+                    $('#chapter-buttons .chapter-btn').removeClass('active');
+                    $('#chapter-buttons').css("display", "grid");
+                    $('#chapter-section').addClass('mb-6');
+                    $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
                 });
 
                 $('#year-buttons .year-btn').on('click', function() {
                     $('#year-buttons .year-btn').removeClass('active');
                     $(this).addClass('active');
-                    $('#table-wrapper').css('display', 'flex');
+                    $('#chapters-wrapper').css('display', 'block');
+                    $('#table-wrapper').css('display', 'none');
+
+                    /* ------- Свернуть главы -------- */
+                    let currentChapter = $('#chapter-buttons').children('.active').text();
+                    $('#chapter-buttons .chapter-btn').removeClass('active');
+                    $('#chapter-buttons').css("display", "grid");
+                    $('#chapter-section').addClass('mb-6');
+                    $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
+
                     /* ------- Свернуть года -------- */
                     $('#year-buttons').css("display", "none");
                     $('#add-year-button-section').css("display", "none");
                     $('#year-section').removeClass();
                     let currentYear = $('#year-buttons').children('.active').text();
                     $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
+                });
+
+                $('#chapter-buttons .chapter-btn').on('click', function() {
+                    $('#chapter-buttons .chapter-btn').removeClass('active');
+                    $(this).addClass('active');
+                    $('#table-wrapper').css('display', 'flex');
+                    /* -------- Свернуть главы -------- */
+                    $('#chapter-buttons').css("display", "none");
+                    $('#chapter-section').removeClass();
+                    let currentChapter = $('#chapter-buttons').children('.active').text();
+                    $('#current-chapter').html($('#current-chapter').html().replace("Главы статистики", "Текущая глава статистики - " + currentChapter));
                     $('html, body').animate({
                         scrollTop: $("#table-wrapper").offset().top
                         }, 1000);
+                    });
+
+                $('#Prod-plan-table tbody tr td div #edit-row').on('click', function() {
+                    let currentBtn = $(this);
+
+                    currentBtn.removeClass('bg-yellow-100');
+                    currentBtn.removeClass('text-yellow-600');
+                    currentBtn.removeClass('hover:bg-yellow-200');
+                    currentBtn.removeClass('focus:ring-yellow-500');
+
+                    currentBtn.addClass('bg-green-100');
+                    currentBtn.addClass('text-green-600');
+                    currentBtn.addClass('hover:bg-green-200');
+                    currentBtn.addClass('focus:ring-green-500');
+                    console.log(currentBtn.children().html());
+
+                    currentBtn.children().html('Done');
+                    currentBtn.removeAttr('id');
+                    currentBtn.attr('id', 'done-row');
                     });
                 });
         </script>
