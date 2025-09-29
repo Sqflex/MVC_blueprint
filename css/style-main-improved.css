@@ -859,8 +859,18 @@ thead tr, thead th, thead{
     display: none;
 }
 
+/* #approved-wrapper {
+    display: none;
+} */
+
 .text-sm-table {
     font-size: 12px;
+    line-height: 16px;
+    border: 1px solid rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.text-approved-table {
+    font-size: 16px;
     line-height: 16px;
     border: 1px solid rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -868,6 +878,11 @@ thead tr, thead th, thead{
 .px-6-table {
     padding-left: 12px;
     padding-right: 12px;
+}
+
+.px-12-table {
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .py-3-table {

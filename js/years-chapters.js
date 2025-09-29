@@ -63,6 +63,7 @@ jQuery(document).ready(function($) {
         $('#chapter-buttons .chapter-btn').removeClass('active');
         $(this).addClass('active');
         $('#table-wrapper').css('display', 'flex');
+        $('#approved-wrapper').css('display', 'flex');
         /* -------- Свернуть главы -------- */
         $('#chapter-buttons').css("display", "none");
         $('#chapter-section').removeClass();
