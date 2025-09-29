@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Производственный план</title>
         <link href='../css/style-main-improved.css' rel="stylesheet"/>
-         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href='../jquery-ui.css' rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div id="webcrumbs">
@@ -173,12 +174,7 @@
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <span
-                                                    class="input-field"
-                                                    role="textbox"
-                                                    contenteditable="false">
-                                                31.10.2025
-                                                </span>
+                                                <input type="text" class="datefield">
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
@@ -208,6 +204,12 @@
                                         </td>
                                     </tr>
                                 </table>
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-700 text-sm">
+                                    <span class="material-symbols-outlined text-sm align-middle mr-1">info</span> 
+                                    Данный раздел виден только пользователям с ролями: Координация, Администратор.
+                                </p>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -827,5 +829,8 @@
         <script src="../js/years-chapters.js" defer></script>
         <script src="../js/table-edit-btn.js" defer></script>
         <script src="../js/dropdown-jobNames.js" defer></script>
+        <script src="../js/date-picker.js" defer></script>
+        <script src="../external/jquery/jquery.js" defer></script>
+        <script src="../jquery-ui.js" defer></script>
     </body>
 </html>
