@@ -23,6 +23,7 @@ jQuery(document).ready(function($){
             let input = inputs.get(i);
             let inputWrapper = inputWrappers.get(i);
             input.setAttribute('contenteditable', 'true');
+            input.removeAttribute('disabled');
             inputWrapper.classList.add('in-edit-mode');
         }
 

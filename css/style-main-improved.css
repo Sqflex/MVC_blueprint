@@ -859,9 +859,9 @@ thead tr, thead th, thead{
     display: none;
 }
 
-/* #approved-wrapper {
+#approved-wrapper {
     display: none;
-} */
+}
 
 .text-sm-table {
     font-size: 12px;

@@ -23,6 +23,8 @@ jQuery(document).ready(function($) {
         $('#years-wrapper').css('display', 'block');
         $('#chapters-wrapper').css('display', 'none');
         $('#table-wrapper').css('display', 'none');
+        $('#approved-wrapper').css('display', 'none');
+
         /* -------- reset -------- */
         let currentYear = $('#year-buttons').children('.active').text();
         $('#year-buttons .year-btn').removeClass('active');
@@ -43,6 +45,7 @@ jQuery(document).ready(function($) {
         $(this).addClass('active');
         $('#chapters-wrapper').css('display', 'block');
         $('#table-wrapper').css('display', 'none');
+        $('#approved-wrapper').css('display', 'none');
 
         /* ------- Свернуть главы -------- */
         let currentChapter = $('#chapter-buttons').children('.active').text();
