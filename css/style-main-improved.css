@@ -818,8 +818,11 @@ table td, table tr, table th {
 .input-field {
     display: block;
     min-height: 24px;
-    cursor: pointer;
+    /* cursor: pointer; */
     word-break: normal;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
 }
 
 span:focus {

@@ -22,9 +22,10 @@ jQuery(document).ready(function($){
         for(let i = 0; i < inputs.length; i++) {
             let input = inputs.get(i);
             let inputWrapper = inputWrappers.get(i);
-            input.setAttribute('contenteditable', 'true');
             input.removeAttribute('disabled');
+            input.setAttribute('contenteditable', 'true');
             inputWrapper.classList.add('in-edit-mode');
+            $(input).css('cursor', 'pointer');
         }
 
     });
@@ -47,12 +48,29 @@ jQuery(document).ready(function($){
         currBtn.attr('id', 'edit-row');
 
         let inputWrappers = currBtn.parent().parent().parent().children().children('.input-wrapper');
-        let inputs = currBtn.parent().parent().parent().children().children('.input-wrapper').children('.input-field');
+        let inputTexts = currBtn.parent().parent().parent().children().children('.input-wrapper').children('.text-field');
+        console.log(inputTexts);
+        let inputDates = currBtn.parent().parent().parent().children().children('.input-wrapper').children('.datefield');
+        console.log(inputDates);
 
-        for (let i = 0; i < inputWrappers.length; i++) {
-            let input = inputs.get(i);
+        for (let i = 0; i < inputTexts.length; i++) {
+            let inputText = inputTexts.get(i);
             let inputWrapper = inputWrappers.get(i);
-            input.removeAttribute('contenteditable', 'false');
+
+            inputText.setAttribute('contenteditable', 'false');
+            inputText.setAttribute('value', inputText.innerText);
+
+            inputWrapper.classList.remove('in-edit-mode');
+        }
+
+        for (let i = 0; i < inputDates.length; i++) {
+            let inputWrapper = inputWrappers.get(i);
+            let inputDate = inputDates.get(i);
+        
+            inputDate.setAttribute('disabled', 'false');
+            inputDate.setAttribute('contenteditable', 'false');
+            inputDate.setAttribute('value', inputDate.value);
+
             inputWrapper.classList.remove('in-edit-mode');
         }
 
