@@ -48,31 +48,25 @@ jQuery(document).ready(function($){
         currBtn.attr('id', 'edit-row');
 
         let inputWrappers = currBtn.parent().parent().parent().children().children('.input-wrapper');
-        let inputTexts = currBtn.parent().parent().parent().children().children('.input-wrapper').children('.text-field');
-        console.log(inputTexts);
-        let inputDates = currBtn.parent().parent().parent().children().children('.input-wrapper').children('.datefield');
-        console.log(inputDates);
 
-        for (let i = 0; i < inputTexts.length; i++) {
-            let inputText = inputTexts.get(i);
+        for (let i = 0; i < inputWrappers.length; i++) {
+            let inputText = inputWrappers.children('.text-field').get(i);
+            let inputDate = inputWrappers.children('.datefield').get(i);
             let inputWrapper = inputWrappers.get(i);
 
-            inputText.setAttribute('contenteditable', 'false');
-            inputText.setAttribute('value', inputText.innerText);
+            if (typeof(inputText) !== 'undefined') {
+                inputText.setAttribute('contenteditable', 'false'); 
+                inputText.setAttribute('value', inputText.innerText);
+            }
+
+            if (typeof(inputDate) !== 'undefined') {
+                inputDate.setAttribute('disabled', 'false');
+                inputDate.setAttribute('contenteditable', 'false');
+                inputDate.setAttribute('value', inputDate.value);
+                inputDate.css('cursor', 'none');
+            }
 
             inputWrapper.classList.remove('in-edit-mode');
         }
-
-        for (let i = 0; i < inputDates.length; i++) {
-            let inputWrapper = inputWrappers.get(i);
-            let inputDate = inputDates.get(i);
-        
-            inputDate.setAttribute('disabled', 'false');
-            inputDate.setAttribute('contenteditable', 'false');
-            inputDate.setAttribute('value', inputDate.value);
-
-            inputWrapper.classList.remove('in-edit-mode');
-        }
-
     });
 }); 
