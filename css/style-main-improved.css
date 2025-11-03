@@ -820,7 +820,7 @@ table td, table tr, table th {
     min-height: 24px;
     /* cursor: pointer; */
     word-break: normal;
-    background-color: #ffffff;
+    background-color: rgba(256, 256, 256, 0.2);
     border: none;
     outline: none;
 }
@@ -917,4 +917,12 @@ thead tr, thead th, thead{
 
 .show-dropdown {
     display: block;
+}
+
+.not-approved {
+    background-color: rgba(221, 40, 40, 0.1);
+}
+
+.approved {
+    background-color: rgba(22, 163, 74, 0.1);
 }

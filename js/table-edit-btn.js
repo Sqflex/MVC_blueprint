@@ -57,16 +57,36 @@ jQuery(document).ready(function($){
             if (typeof(inputText) !== 'undefined') {
                 inputText.setAttribute('contenteditable', 'false'); 
                 inputText.setAttribute('value', inputText.innerText);
+                $(inputText).css('cursor', 'default');
             }
 
             if (typeof(inputDate) !== 'undefined') {
                 inputDate.setAttribute('disabled', 'false');
                 inputDate.setAttribute('contenteditable', 'false');
                 inputDate.setAttribute('value', inputDate.value);
-                inputDate.css('cursor', 'none');
+                console.log(inputDate);
+                console.log(inputDate.value);
+                $(inputDate).css('cursor', 'default');
             }
 
             inputWrapper.classList.remove('in-edit-mode');
+        }
+    });
+
+    $('#row-approved').change(function() {
+        let currCheckbox = $(this).parent();
+        let currRow = $(this).parent().parent().parent().parent();
+        console.log(currRow);
+        if ($(this).is(':checked')) {
+            currCheckbox.removeClass('bg-red-500');
+            currCheckbox.addClass('bg-green-600');
+            currRow.removeClass('not-approved');
+            currRow.addClass('approved');
+        } else {
+            currCheckbox.removeClass('bg-green-600');
+            currCheckbox.addClass('bg-red-500');
+            currRow.removeClass('approved');
+            currRow.addClass('not-approved');
         }
     });
 }); 

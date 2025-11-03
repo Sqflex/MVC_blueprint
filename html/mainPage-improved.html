@@ -174,7 +174,7 @@
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="job-span" type="text" class="datefield input-field" value="20.09.2025" disabled="false">
+                                                <input id="job-span" type="text" class="datefield input-field" value="01.11.2025" disabled="false">
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200">
@@ -218,11 +218,6 @@
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Производственный план</h2>
                             <div class="flex gap-3">
-                                <div class="py-2 px-4 bg-red-500 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-red-500 focus:outline-none focus:ring-2 
-                                    focus:ring-primary-500 focus:ring-opacity-50 flex items-center gap-2">
-                                    <input type="checkbox" id="myCheckbox">
-                                    <label for="myCheckbox">Подтверждён</label>
-                                </div>
                                 <button
                                     class="py-2 px-4 bg-green-600 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center gap-2"
                                 >
@@ -244,103 +239,101 @@
                             <table id="Prod-plan-table" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <thead class="sticky-head">
                                     <tr class="bg-gray-100">
-                                        <th id="table-head number-col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head number_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             № п/п</th>
                                         <th id="table-head main_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup">
                                             Основной источник формирования статистической информации (индекс формы, иной источник)
                                         </th>
-                                        <th id="table-head work_name_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head additional_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Дополнительный источник данных (информации) для формирования официальной статистической информации (индекс формы, иной источник)</th>
                                         <th id="table-head additional_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Срок представления данных (информации) дополнительного источника</th>
-                                        <th id="table-head respondent_submission_deadline_col" class="py-3-table px-6 text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3"  colspan="1" scope="colgroup">
-                                            Срок представления респондентами первичных статистических данных (дата, число, день)</th>
-                                        <th id="table-head " class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_name_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование работы</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head industry_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Отрасль (подотрасль) статистики по КСД</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head executor_department_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнитель работы (наименование структурного подразделения Белстата)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head responsible_executor_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Ответственный исполнитель работы в структурном подразделении Белстата (Ф.И.О.)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head reporting_period_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Отчетный период</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head primary_data_collection_start_date_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Дата начала сбора первичных статистических данных</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head primary_data_submission_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок представления респондентами первичных статистических данных (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head department_transfer_to_gsu_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в ГСУ отделами статистики ГСУ (окончания отделами статистики ГСУ обработки в ЕИСГС)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head transfer_to_belstat_gsu_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head transfer_time_to_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Время передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head corrected_data_to_longterm_db_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок переноса исправленных первичных статистических данных в долговременную базу первичных статистических данных</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы Белстатом (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы ГСУ (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_development_breakdown_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки Белстатом</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_development_breakdown_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки ГСУ</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head aggregated_data_recipient_department_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование структурного подразделения Белстата, ГСУ, которому представляются агрегированные первичные статистические данные</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_result_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Результат выполнения работы Белстатом</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_result_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Результат выполнения работы ГСУ</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head publication_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы (публикации значений статистического показателя, выпуска статистического издания или иной официальной статистической информации (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head status_of_work_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Статус работы</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head executors_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнители</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head coexecutors_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнители (соисполнители) Белстата</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head data_registry_sources_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Источники формирования и ведения базы данных статистического регистра (индекс формы, иной источник)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы ГСУ</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы Белстатом</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head deadline_transfer_gsu_to_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в Белстат ГСУ (выполнения работы ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head deadline_transfer_departments_to_gsu_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в ГСУ отделами статистики ГСУ (выполнения работы отделами статистики ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head sampling_source_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Источник для формирования выборки</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head development_breakdown_id_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contract_conclusion_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок заключения договора</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head industrial_operation_start_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок ввода в промышленную эксплуатацию</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contractor_organization_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Организация-исполнитель</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contractor_expected_organization_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Организация-исполнитель (предполагаемый исполнитель)</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_responsible_persons_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Ответственные за выполнение работы в Белстате</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head info_submission_deadline_to_contractor_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок представления необходимой информации (докладной записки о внесении изменений в комплекс программных средств, 
                                             заявки на сопровождение) организации-исполнителю</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_execution_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_responsible_persons_choice_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Ответственные за выполнение работы в Белстате</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_name_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование официальной статистической информации</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность представления официальной статистической информации</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_recipient_org_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование организации, в которую представляется официальная статистическая информация</th>
-                                        <th id="table-head" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head action_buttons" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Действия
                                         </th>
                                     </tr>
@@ -370,119 +363,380 @@
                                 </thead> -->
 
                                 <tbody>
-                                    <tr class="hover:bg-gray-50 transition-colors t-row">
-                                        <td class="py-4 px-6 border-b border-gray-200 text-sm">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    <tr id="plan_row" class="hover:bg-gray-50 transition-colors t-row not-approved">
+                                        <td id="number_row" class="py-4 px-6 border-b border-gray-200 text-sm">
+                                            <div id="number_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
                                                 1
                                                 </span>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="main_statistical_source_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="main_statistical_source_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
                                                 1-нас (Чернобыль)
-                                                </span>
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="additional_statistical_source_row" class="py-4 px-6 border-b border-gray-200">
+                                            <div id="additional_statistical_source_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
-                                                    id="job-span"
                                                     class="input-field"
                                                     role="textbox"
                                                     contenteditable="false">
                                                     Данные о численности населения, проживающего в зонах радиоактивного загрязнения
-                                                </span>
-                                            </div>
-                                            <div class="dropdown-content">
-                                                <a href="#about">Тест 1</a>
-                                                <a href="#base">Минск тест</a>
-                                                <a href="#blog">Год 2020</a>
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <span 
-                                                    class="input-field"
-                                                    role="textbox"
-                                                    contenteditable="false">
-                                                </span>
+                                        <td id="additional_source_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="additional_source_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="additional_source_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false">
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="work_name_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="work_name_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                25 января
-                                                </span>
+                                                Наименование работы
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="work_periodicity_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="work_periodicity_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                5 февраля (СД)
-                                                </span>
+                                                Периодичность выполнения работы
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="industry_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="industry_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                24 февраля
-                                                </span>
+                                                Отрасль (подотрасль) статистики по КСД
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="executor_department_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="executor_department_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                10 марта
-                                                </span>
+                                                Исполнитель работы (наименование структурного подразделения Белстата)
+                                                </span> <!-- Справочник -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="responsible_executor_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="responsible_executor_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                республика, области, районы, зоны загрязнения, возрастные группы
-                                                </span>
+                                                    Ответственный исполнитель работы в структурном подразделении Белстата (Ф.И.О.)
+                                                </span> <!-- ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="reporting_period_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="reporting_period_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                </span>
+                                                Отчетный период
+                                                </span> <!-- ручной ввод -->
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 border-b border-gray-200 td-prop">
-                                            <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                        <td id="primary_data_collection_start_date_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="primary_data_collection_start_date_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="primary_data_collection_start_date_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="primary_data_submission_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="primary_data_submission_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="primary_data_submission_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="department_transfer_to_gsu_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="department_transfer_to_gsu_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="department_transfer_to_gsu_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="transfer_to_belstat_gsu_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="transfer_to_belstat_gsu_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="transfer_to_belstat_gsu_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="transfer_time_to_belstat_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="transfer_time_to_belstat_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field"
+                                                    class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                РБ (10 марта) Б (15 марта)
-                                                </span>
+                                                Время передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ)
+                                                </span> <!-- ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="corrected_data_to_longterm_db_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="corrected_data_to_longterm_db_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="corrected_data_to_longterm_db_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="belstat_work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_work_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="belstat_work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="gsu_work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="gsu_work_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="gsu_work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="belstat_development_breakdown_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_development_breakdown_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Разрез разработки Белстатом
+                                                </span> <!-- Справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="gsu_development_breakdown_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="gsu_development_breakdown_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Разрез разработки ГСУ
+                                                </span> <!-- Справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="aggregated_data_recipient_department_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="aggregated_data_recipient_department_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="aggregated_data_recipient_department_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>                                        
+                                        <td id="belstat_work_result_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_work_result_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Результат выполнения работы Белстатом
+                                                </span> <!-- Справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="gsu_work_result_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="gsu_work_result_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Результат выполнения работы ГСУ
+                                                </span> <!-- Справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="publication_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="publication_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="publication_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="status_of_work_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="status_of_work_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Статус работы
+                                                </span> <!-- Справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="work_deadline_row" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="executors_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="executors_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Исполнители
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="coexecutors_belstat_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="coexecutors_belstat_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Исполнители (соисполнители) Белстата
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="data_registry_sources_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="data_registry_sources_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Источники формирования и ведения базы данных статистического регистра (индекс формы, иной источник)
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="gsu_work_periodicity_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="gsu_work_periodicity_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Периодичность выполнения работы ГСУ
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="belstat_work_periodicity_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_work_periodicity_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Периодичность выполнения работы Белстатом
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="deadline_transfer_gsu_to_belstat_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="deadline_transfer_gsu_to_belstat_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="deadline_transfer_gsu_to_belstat_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="deadline_transfer_departments_to_gsu_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="deadline_transfer_departments_to_gsu_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="deadline_transfer_departments_to_gsu_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="sampling_source_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="sampling_source_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Источник для формирования выборки
+                                                </span> <!-- Ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="development_breakdown_id_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="development_breakdown_id_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Разрез разработки
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="contract_conclusion_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="contract_conclusion_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="contract_conclusion_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="industrial_operation_start_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="industrial_operation_start_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="industrial_operation_start_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="contractor_organization_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="contractor_organization_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Организация-исполнитель
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="contractor_expected_organization_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="contractor_expected_organization_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Организация-исполнитель (предполагаемый исполнитель)
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="belstat_responsible_persons_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_responsible_persons_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Ответственные за выполнение работы в Белстате
+                                                </span> <!-- ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="info_submission_deadline_to_contractor_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="info_submission_deadline_to_contractor_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="info_submission_deadline_to_contractor_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="work_execution_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="work_execution_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <input id="work_execution_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                            </div>
+                                        </td>
+                                        <td id="belstat_responsible_persons_choice_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="belstat_responsible_persons_choice_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Ответственные за выполнение работы в Белстате
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="official_stat_info_name_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="official_stat_info_name_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Наименование официальной статистической информации
+                                                </span> <!-- справочник -->
+                                            </div>
+                                        </td>
+                                        <td id="official_stat_info_periodicity_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="official_stat_info_periodicity_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Периодичность представления официальной статистической информации
+                                                </span> <!-- Справочник/ручной ввод -->
+                                            </div>
+                                        </td>
+                                        <td id="official_stat_info_recipient_org_row" class="py-4 px-6 border-b border-gray-200 td-prop">
+                                            <div id="official_stat_info_recipient_org_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                                <span 
+                                                    class="input-field text-field"
+                                                    role="textbox"
+                                                    contenteditable="false">
+                                                Наименование организации, в которую представляется официальная статистическая информация
+                                                </span> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
                                         <td class="py-4 px-6 border-b border-gray-200 text-center">
@@ -497,6 +751,11 @@
                                                 >
                                                     <span class="material-symbols-outlined text-sm">delete</span>
                                                 </button>
+                                                <div class="py-2 px-4 bg-red-500 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-red-500 focus:outline-none focus:ring-2 
+                                                focus:ring-primary-500 focus:ring-opacity-50 flex items-center gap-2">
+                                                    <input type="checkbox" id="row-approved">
+                                                    <label for="row-approved">Подтверждён</label>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
