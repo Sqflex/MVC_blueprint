@@ -377,18 +377,22 @@
                                         <td id="main_statistical_source_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="main_statistical_source_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
-                                                    class="input-field text-field"
+                                                    id="main_statistical_source_row_span"
+                                                    class="input-field input-dict-field"
+                                                    data-items='["Тест","Поля","для","ввода","по справочнику", "Основной источник формирования статистической информации (индекс формы, иной источник)"]'
                                                     role="textbox"
                                                     contenteditable="false">
                                                 1-нас (Чернобыль)
-                                                </span> <!-- Справочник/ручной ввод -->
+                                                </span>
+                                                <div id="suggestions" class="suggestions" style="display:none;"></div> <!-- Справочник/ручной ввод -->
                                             </div>
                                         </td>
                                         <td id="additional_statistical_source_row" class="py-4 px-6 border-b border-gray-200">
                                             <div id="additional_statistical_source_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
-                                                    class="input-field"
+                                                    class="input-field input-dict-field"
                                                     role="textbox"
+                                                    data-items='["Тест","Поля","для","ввода","по справочнику", "Данные о численности населения, проживающего в зонах радиоактивного загрязнения"]'
                                                     contenteditable="false">
                                                     Данные о численности населения, проживающего в зонах радиоактивного загрязнения
                                                 </span> <!-- Справочник/ручной ввод -->
@@ -402,7 +406,8 @@
                                         <td id="work_name_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="work_name_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span 
-                                                    class="input-field text-field"
+                                                    class="input-field input-dict-field"
+                                                    data-items='["Тест","Поля","для","ввода","по справочнику", "Наименование работы"]'
                                                     role="textbox"
                                                     contenteditable="false">
                                                 Наименование работы
@@ -1146,6 +1151,7 @@
         <script src="../js/table-edit-btn.js" defer></script>
         <script src="../js/dropdown-jobNames.js" defer></script>
         <script src="../js/date-picker.js" defer></script>
+        <script src="../js/dropdown-list-with-manual.js" defer></script>
         <script src="../external/jquery/jquery.js" defer></script>
         <script src="../jquery-ui.js" defer></script>
     </body>

@@ -926,3 +926,19 @@ thead tr, thead th, thead{
 .approved {
     background-color: rgba(22, 163, 74, 0.1);
 }
+
+.suggestions {
+    border: 1px solid #ccc;
+    width: 200px;
+    position: absolute;
+    background: #fff;
+    z-index: 1000;
+  }
+  .suggestions div {
+    border-bottom: 1px solid #ccc;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .suggestions div:hover {
+    background: #eee;
+  }

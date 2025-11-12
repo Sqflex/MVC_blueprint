@@ -1,4 +1,6 @@
 jQuery(document).ready(function($){
+
+    // Кнопка "редактировать"
     $(document).on('click', '#edit-row', function() {
         let currentBtn = $(this);
 
@@ -30,6 +32,7 @@ jQuery(document).ready(function($){
 
     });
 
+    // Кнопка "сохранить"
     $(document).on('click', '#done-row', function() {
         let currBtn = $(this);
 
@@ -64,8 +67,6 @@ jQuery(document).ready(function($){
                 inputDate.setAttribute('disabled', 'false');
                 inputDate.setAttribute('contenteditable', 'false');
                 inputDate.setAttribute('value', inputDate.value);
-                console.log(inputDate);
-                console.log(inputDate.value);
                 $(inputDate).css('cursor', 'default');
             }
 
@@ -73,10 +74,10 @@ jQuery(document).ready(function($){
         }
     });
 
+    // Чекбокс "Подтвержден"
     $('#row-approved').change(function() {
         let currCheckbox = $(this).parent();
         let currRow = $(this).parent().parent().parent().parent();
-        console.log(currRow);
         if ($(this).is(':checked')) {
             currCheckbox.removeClass('bg-red-500');
             currCheckbox.addClass('bg-green-600');
