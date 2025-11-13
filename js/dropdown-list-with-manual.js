@@ -5,8 +5,6 @@ jQuery(document).ready(function($){
     $(document).on("input", ".input-dict-field", function() {
         activeField = $(this);
         fieldParent = $(this).parent();
-        console.log(activeField);
-        console.log(fieldParent);
 
         const items = JSON.parse(activeField.attr("data-items"));
         const value = activeField.text().trim().toLowerCase();

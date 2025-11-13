@@ -942,3 +942,20 @@ thead tr, thead th, thead{
   .suggestions div:hover {
     background: #eee;
   }
+
+.dict-field-chosen {
+    width: 200px;
+}
+
+.chosen-container {
+    margin-top: 8px;
+}
+
+.chosen-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.chosen-item button {
+    margin: 0px 6px;
+}
