@@ -224,7 +224,59 @@
                     <main class="w-[100%] p-6 overflow-y-auto">
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Производственный план</h2>
+                            
                             <div class="flex gap-3">
+                                <div class="dropdown-hid-col">
+                                    <button class="drop-hid-col-btn py-2 px-4 bg-green-600 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center gap-2">Выберите колонки для скрытия</button>
+                                    <div class="dropdown-content-hidden-col">
+                                        <div class="checkbox-grid">
+                                            <label><input type="checkbox" class="col-toggle" data-col="1" checked>Основной источник формирования статистической информации (индекс формы, иной источник)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="2" checked>Дополнительный источник данных (информации) для формирования официальной статистической информации (индекс формы, иной источник)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="3" checked>Срок представления данных (информации) дополнительного источника</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="4" checked>Наименование работы</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="5" checked>Периодичность выполнения работы</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="6" checked>Отрасль (подотрасль) статистики по КСД</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="7" checked>Исполнитель работы (наименование структурного подразделения Белстата)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="8" checked>Ответственный исполнитель работы в структурном подразделении Белстата (Ф.И.О.)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="9" checked>Отчетный период</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="10" checked>Дата начала сбора первичных статистических данных</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="11" checked>Срок представления респондентами первичных статистических данных (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="12" checked>Срок передачи в ГСУ отделами статистики ГСУ (окончания отделами статистики ГСУ обработки в ЕИСГС)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="13" checked>Срок передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ) (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="14" checked>Время передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="15" checked>Срок переноса исправленных первичных статистических данных в долговременную базу первичных статистических данных</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="16" checked>Срок выполнения работы Белстатом (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="17" checked>Срок выполнения работы ГСУ (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="18" checked>Разрез разработки Белстатом</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="19" checked>Разрез разработки ГСУ</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="20" checked>Наименование структурного подразделения Белстата, ГСУ, которому представляются агрегированные первичные статистические данные</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="21" checked>Результат выполнения работы Белстатом</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="22" checked>Результат выполнения работы ГСУ</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="23" checked>Срок выполнения работы (публикации значений статистического показателя, выпуска статистического издания или иной официальной статистической информации (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="24" checked>Статус работы</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="25" checked>Срок выполнения работы</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="26" checked>Исполнители</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="27" checked>Исполнители (соисполнители) Белстата</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="28" checked>Источники формирования и ведения базы данных статистического регистра (индекс формы, иной источник)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="29" checked>Периодичность выполнения работы ГСУ</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="30" checked>Периодичность выполнения работы Белстатом</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="31" checked>Срок передачи в Белстат ГСУ (выполнения работы ГСУ) (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="32" checked>Срок передачи в ГСУ отделами статистики ГСУ (выполнения работы отделами статистики ГСУ) (дата (00.00.0000), число, день)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="33" checked>Источник для формирования выборки</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="34" checked>Разрез разработки</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="35" checked>Срок заключения договора</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="36" checked>Срок ввода в промышленную эксплуатацию</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="37" checked>Организация-исполнитель</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="38" checked>Организация-исполнитель (предполагаемый исполнитель)</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="39" checked>Срок представления необходимой информации (докладной записки о внесении изменений в комплекс программных средств, заявки на сопровождение) организации-исполнителю</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="40" checked>Срок выполнения работы</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="41" checked>Ответственные за выполнение работы в Белстате</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="42" checked>Наименование официальной статистической информации</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="43" checked>Периодичность представления официальной статистической информации</label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="44" checked>Наименование организации, в которую представляется официальная статистическая информация</label>                                            
+                                        </div>
+                                    </div>
+                                </div>
                                 <button
                                     id="add-row-pp-table" class="py-2 px-4 bg-green-600 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center gap-2"
                                 >
@@ -1945,5 +1997,6 @@
         <script src="../js/dropdown-list.js" defer></script>
         <script src="../js/dropdown-list-with-manual.js" defer></script>
         <script src="../js/dropdown-with-chosen-options.js" defer></script>
+        <script src="../js/dropdown-hidden-columns.js" defer></script>
     </body>
 </html>

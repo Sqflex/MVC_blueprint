@@ -1,5 +1,6 @@
 jQuery(document).ready(function($){
 
+    let universalId = 1;
     // Кнопка "Удалить строку"
     $(document).on("click", '#delete-row', function() {
         $(this).closest('tr').remove();
@@ -26,6 +27,7 @@ jQuery(document).ready(function($){
         let inputWrappers = currentBtn.parent().parent().parent().children().children('.input-wrapper');
         let inputs = currentBtn.parent().parent().parent().children().children('.input-wrapper').children('.input-field');
         let chosenButtons = inputWrappers.children('.chosen-container').children('.chosen-item').children('#delete-chosen');
+        console.log(inputs);
 
         for(let i = 0; i < inputs.length; i++) {
             let input = inputs.get(i);
@@ -124,7 +126,6 @@ jQuery(document).ready(function($){
     // Кнопка "Добавить строку"
 
     $('#add-row-pp-table').on('click', function() {
-
         const $newRow = $(`
                                     <tr id="plan_row" class="hover:bg-gray-50 transition-colors t-row not-approved">
                                         <td id="number_row" class="py-4 px-6 border-b border-gray-200 text-sm">
@@ -133,7 +134,7 @@ jQuery(document).ready(function($){
                                                     class="input-field text-field"
                                                     role="textbox"
                                                     contenteditable="false">
-                                                
+                                                    ${universalId}
                                                 </span>
                                             </div>
                                         </td>
@@ -160,7 +161,7 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="additional_source_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="additional_source_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="additional_source_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false">
+                                                <input id="additional_source_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false">
                                             </div>
                                         </td>
                                         <td id="work_name_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -225,22 +226,22 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="primary_data_collection_start_date_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="primary_data_collection_start_date_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="primary_data_collection_start_date_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="primary_data_collection_start_date_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="primary_data_submission_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="primary_data_submission_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="primary_data_submission_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="primary_data_submission_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="department_transfer_to_gsu_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="department_transfer_to_gsu_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="department_transfer_to_gsu_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="department_transfer_to_gsu_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="transfer_to_belstat_gsu_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="transfer_to_belstat_gsu_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="transfer_to_belstat_gsu_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="transfer_to_belstat_gsu_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="transfer_time_to_belstat_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -254,17 +255,17 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="corrected_data_to_longterm_db_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="corrected_data_to_longterm_db_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="corrected_data_to_longterm_db_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="corrected_data_to_longterm_db_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="belstat_work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="belstat_work_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="belstat_work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="belstat_work_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="gsu_work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="gsu_work_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="gsu_work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="gsu_work_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="belstat_development_breakdown_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -283,7 +284,7 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="aggregated_data_recipient_department_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="aggregated_data_recipient_department_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="aggregated_data_recipient_department_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="aggregated_data_recipient_department_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>                                        
                                         <td id="belstat_work_result_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -302,7 +303,7 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="publication_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="publication_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="publication_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="publication_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="status_of_work_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -314,7 +315,7 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="work_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="work_deadline_row" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="work_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="work_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="executors_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -369,12 +370,12 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="deadline_transfer_gsu_to_belstat_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="deadline_transfer_gsu_to_belstat_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="deadline_transfer_gsu_to_belstat_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="deadline_transfer_gsu_to_belstat_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="deadline_transfer_departments_to_gsu_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="deadline_transfer_departments_to_gsu_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="deadline_transfer_departments_to_gsu_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="deadline_transfer_departments_to_gsu_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="sampling_source_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -399,12 +400,12 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="contract_conclusion_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="contract_conclusion_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="contract_conclusion_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="contract_conclusion_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="industrial_operation_start_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="industrial_operation_start_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="industrial_operation_start_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="industrial_operation_start_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="contractor_organization_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -429,12 +430,12 @@ jQuery(document).ready(function($){
                                         </td>
                                         <td id="info_submission_deadline_to_contractor_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="info_submission_deadline_to_contractor_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="info_submission_deadline_to_contractor_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="info_submission_deadline_to_contractor_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="work_execution_deadline_row" class="py-4 px-6 border-b border-gray-200 td-prop">
                                             <div id="work_execution_deadline_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
-                                                <input id="work_execution_deadline_row_date_field" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
+                                                <input id="work_execution_deadline_row_date_field_${universalId}" type="text" class="datefield input-field" value="01.11.2025" disabled="false"> <!-- Календарь -->
                                             </div>
                                         </td>
                                         <td id="belstat_responsible_persons_choice_row" class="py-4 px-6 border-b border-gray-200 td-prop">
@@ -498,8 +499,8 @@ jQuery(document).ready(function($){
         `);
         $('#Prod-plan-table tbody').append($newRow);
 
-        console.log($newRow.find('.datefield'));
-
         $newRow.find('.datefield').datepicker();
+        console.log(universalId);
+        universalId+=1;
     });
 }); 
