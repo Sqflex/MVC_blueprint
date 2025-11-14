@@ -1,6 +1,7 @@
 jQuery(document).ready(function($){
 
     let universalId = 1;
+    let universalIdApproved = 1;
     // Кнопка "Удалить строку"
     $(document).on("click", '#delete-row', function() {
         $(this).closest('tr').remove();
@@ -123,9 +124,16 @@ jQuery(document).ready(function($){
         }
     });
 
-    // Кнопка "Добавить строку"
+    // Кнопка "Добавить строку" - Основная таблица
 
     $('#add-row-pp-table').on('click', function() {
+        if (universalId === 1) {
+            let allRows = $('#Prod-plan-table tbody').children('tr');
+            console.log(allRows);
+            for (let i = 0; i < allRows.length; i++) {
+                universalId+=1;
+            }
+        }
         const $newRow = $(`
                                     <tr id="plan_row" class="hover:bg-gray-50 transition-colors t-row not-approved">
                                         <td id="number_row" class="py-4 px-6 border-b border-gray-200 text-sm">
@@ -497,10 +505,61 @@ jQuery(document).ready(function($){
                                         <div id="suggestions" class="suggestions" style="display:none;"></div>  <!-- Справочник/ручной ввод поле-->
                                     </tr>   
         `);
+        console.log(universalId);
         $('#Prod-plan-table tbody').append($newRow);
 
         $newRow.find('.datefield').datepicker();
         console.log(universalId);
         universalId+=1;
+    });
+
+    $('#add-approved-row').on('click', function() {
+        const $newRow = $(`
+            <tr class="hover:bg-gray-50 transition-colors t-row">
+                <td class="py-4 px-6 border-b border-gray-200 text-sm">
+                    <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <span
+                            class="input-field text-field"
+                            role="textbox"
+                            contenteditable="false">
+
+                        </span>
+                    </div>
+                </td>
+                <td class="py-4 px-6 border-b border-gray-200 td-prop">
+                    <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <input id="job-span_${universalIdApproved}" type="text" class="datefield input-field" value="" disabled="false">
+                    </div>
+                </td>
+                <td class="py-4 px-6 border-b border-gray-200">
+                    <div class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <span
+                            id="job-span"
+                            class="input-field text-field"
+                            role="textbox">
+                        </span>
+                    </div>
+                </td>
+                <td class="py-4 px-6 border-b border-gray-200 text-center">
+                    <div class="flex justify-center space-x-3">
+                        <button
+                            id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                        >
+                            <span class="material-symbols-outlined text-sm">edit</span>
+                        </button>
+                        <button
+                            id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                        >
+                            <span class="material-symbols-outlined text-sm">delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `);
+
+        $('#approve-table tbody').append($newRow);
+
+        $newRow.find('.datefield').datepicker();
+        universalIdApproved++;
     });
 }); 
