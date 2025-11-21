@@ -1059,3 +1059,19 @@ thead tr, thead th, thead{
     font-size: 20px;
     cursor: pointer;
 }
+
+.col-search-input {
+    margin-bottom: 8px;
+}
+
+#year-floating-selector {
+    display:none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    z-index: 9999;
+}

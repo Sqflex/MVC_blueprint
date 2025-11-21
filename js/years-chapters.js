@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 
     /* ---------- Эмуляция кликов по кнопкам ----------------- */
 
-    $('#main-stats .main-btn').on('click', function() {
+    $('#main-stats').on('click', '.main-btn', function() {
         $('#main-stats .main-btn').removeClass('active');
         $(this).addClass('active');
         $('#years-wrapper').css('display', 'block');
@@ -40,29 +40,48 @@ jQuery(document).ready(function($) {
         $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
     });
 
-    $('#year-buttons .year-btn').on('click', function() {
+    $('#year-buttons').on('click', '.year-btn', function() {
+
+        const selectedYear = $(this).text();
+
         $('#year-buttons .year-btn').removeClass('active');
         $(this).addClass('active');
-        $('#chapters-wrapper').css('display', 'block');
-        $('#table-wrapper').css('display', 'none');
-        $('#approved-wrapper').css('display', 'none');
 
-        /* ------- Свернуть главы -------- */
-        let currentChapter = $('#chapter-buttons').children('.active').text();
-        $('#chapter-buttons .chapter-btn').removeClass('active');
-        $('#chapter-buttons').css("display", "grid");
-        $('#chapter-section').addClass('mb-6');
-        $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
+        $('#chapters-wrapper').show();
+        $('#years-wrapper').css('display', 'none');
 
-        /* ------- Свернуть года -------- */
-        $('#year-buttons').css("display", "none");
-        $('#add-year-button-section').css("display", "none");
-        $('#year-section').removeClass();
-        let currentYear = $('#year-buttons').children('.active').text();
-        $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
+        $('#current-year').text(
+            'Текущий год производственного планирования - ' + selectedYear
+        );
+
+        $('#year-section').slideUp(300);
+
+        if ($('#year-dropdown option').length === 0) {
+            $('#year-buttons .year-btn').each(function() {
+                const year = $(this).text();
+                $('#year-dropdown').append(
+                    `<option value="${year}">${year}</option>`
+                );
+            });
+        }
+
+        $('#year-dropdown').val(selectedYear);
+
+        $('#year-floating-selector').fadeIn(200);
     });
 
-    $('#chapter-buttons .chapter-btn').on('click', function() {
+    $('#year-dropdown').on('change', function() {
+        const newYear = $(this).val();
+
+        $('#current-year').text(
+            'Текущий год производственного планирования - ' + newYear
+        );
+
+        console.log('Год изменён на:', newYear);
+    });
+
+
+    $('#chapter-buttons').on('click', '.chapter-btn', function() {
         $('#chapter-buttons .chapter-btn').removeClass('active');
         $(this).addClass('active');
         $('#table-wrapper').css('display', 'flex');
@@ -77,3 +96,25 @@ jQuery(document).ready(function($) {
             }, 1000);
         });
     });
+
+    // $('#year-buttons').on('click', '.year-btn', function() {
+    //     $('#year-buttons .year-btn').removeClass('active');
+    //     $(this).addClass('active');
+    //     $('#chapters-wrapper').css('display', 'block');
+    //     $('#table-wrapper').css('display', 'none');
+    //     $('#approved-wrapper').css('display', 'none');
+
+    //     /* ------- Свернуть главы -------- */
+    //     let currentChapter = $('#chapter-buttons').children('.active').text();
+    //     $('#chapter-buttons .chapter-btn').removeClass('active');
+    //     $('#chapter-buttons').css("display", "grid");
+    //     $('#chapter-section').addClass('mb-6');
+    //     $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
+
+    //     /* ------- Свернуть года -------- */
+    //     $('#year-buttons').css("display", "none");
+    //     $('#add-year-button-section').css("display", "none");
+    //     $('#year-section').removeClass();
+    //     let currentYear = $('#year-buttons').children('.active').text();
+    //     $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
+    // });
