@@ -1075,3 +1075,29 @@ thead tr, thead th, thead{
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     z-index: 9999;
 }
+
+th.sortable {
+    cursor: pointer;
+    padding-right: 20px; /* место под стрелку */
+    user-select: none;
+}
+
+th.sortable::after {
+    content: "⇅";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    opacity: .4;
+}
+
+th.sortable.asc::after {
+    content: "↑";
+    opacity: 1;
+}
+
+th.sortable.desc::after {
+    content: "↓";
+    opacity: 1;
+}

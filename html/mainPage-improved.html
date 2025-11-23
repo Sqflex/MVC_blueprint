@@ -6,7 +6,7 @@
         <title>Производственный план</title>
         <link href='../css/style-main-improved.css' rel="stylesheet"/>
         <link href='../jquery-ui.css' rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <script src="../external/jquery/jquery.js"></script>
         <script src="../jquery-ui.js"></script>
         <script>
@@ -353,97 +353,97 @@
                             <table id="Prod-plan-table" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <thead class="sticky-head">
                                     <tr class="bg-gray-100">
-                                        <th id="table-head number_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head number_col" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             № п/п</th>
-                                        <th id="table-head main_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head main_statistical_source_col" class="sortable sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup">
                                             Основной источник формирования статистической информации (индекс формы, иной источник)
                                         </th>
-                                        <th id="table-head additional_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head additional_statistical_source_col" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Дополнительный источник данных (информации) для формирования официальной статистической информации (индекс формы, иной источник)</th>
-                                        <th id="table-head additional_statistical_source_col" class="py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
+                                        <th id="table-head additional_statistical_source_cole" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Срок представления данных (информации) дополнительного источника</th>
-                                        <th id="table-head work_name_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_name_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование работы</th>
-                                        <th id="table-head work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы</th>
-                                        <th id="table-head industry_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head industry_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Отрасль (подотрасль) статистики по КСД</th>
-                                        <th id="table-head executor_department_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head executor_department_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнитель работы (наименование структурного подразделения Белстата)</th>
-                                        <th id="table-head responsible_executor_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head responsible_executor_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Ответственный исполнитель работы в структурном подразделении Белстата (Ф.И.О.)</th>
-                                        <th id="table-head reporting_period_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head reporting_period_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Отчетный период</th>
-                                        <th id="table-head primary_data_collection_start_date_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head primary_data_collection_start_date_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Дата начала сбора первичных статистических данных</th>
-                                        <th id="table-head primary_data_submission_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head primary_data_submission_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок представления респондентами первичных статистических данных (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head department_transfer_to_gsu_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head department_transfer_to_gsu_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в ГСУ отделами статистики ГСУ (окончания отделами статистики ГСУ обработки в ЕИСГС)</th>
-                                        <th id="table-head transfer_to_belstat_gsu_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head transfer_to_belstat_gsu_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head transfer_time_to_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head transfer_time_to_belstat_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Время передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ)</th>
-                                        <th id="table-head corrected_data_to_longterm_db_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head corrected_data_to_longterm_db_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок переноса исправленных первичных статистических данных в долговременную базу первичных статистических данных</th>
-                                        <th id="table-head belstat_work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы Белстатом (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head gsu_work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы ГСУ (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head belstat_development_breakdown_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_development_breakdown_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки Белстатом</th>
-                                        <th id="table-head gsu_development_breakdown_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_development_breakdown_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки ГСУ</th>
-                                        <th id="table-head aggregated_data_recipient_department_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head aggregated_data_recipient_department_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование структурного подразделения Белстата, ГСУ, которому представляются агрегированные первичные статистические данные</th>
-                                        <th id="table-head belstat_work_result_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_result_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Результат выполнения работы Белстатом</th>
-                                        <th id="table-head gsu_work_result_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_result_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Результат выполнения работы ГСУ</th>
-                                        <th id="table-head publication_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head publication_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы (публикации значений статистического показателя, выпуска статистического издания или иной официальной статистической информации (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head status_of_work_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head status_of_work_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Статус работы</th>
-                                        <th id="table-head work_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы</th>
-                                        <th id="table-head executors_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head executors_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнители</th>
-                                        <th id="table-head coexecutors_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head coexecutors_belstat_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Исполнители (соисполнители) Белстата</th>
-                                        <th id="table-head data_registry_sources_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head data_registry_sources_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Источники формирования и ведения базы данных статистического регистра (индекс формы, иной источник)</th>
-                                        <th id="table-head gsu_work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы ГСУ</th>
-                                        <th id="table-head belstat_work_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность выполнения работы Белстатом</th>
-                                        <th id="table-head deadline_transfer_gsu_to_belstat_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head deadline_transfer_gsu_to_belstat_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в Белстат ГСУ (выполнения работы ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head deadline_transfer_departments_to_gsu_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head deadline_transfer_departments_to_gsu_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок передачи в ГСУ отделами статистики ГСУ (выполнения работы отделами статистики ГСУ) (дата (00.00.0000), число, день)</th>
-                                        <th id="table-head sampling_source_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head sampling_source_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Источник для формирования выборки</th>
-                                        <th id="table-head development_breakdown_id_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head development_breakdown_id_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Разрез разработки</th>
-                                        <th id="table-head contract_conclusion_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contract_conclusion_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок заключения договора</th>
-                                        <th id="table-head industrial_operation_start_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head industrial_operation_start_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок ввода в промышленную эксплуатацию</th>
-                                        <th id="table-head contractor_organization_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contractor_organization_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Организация-исполнитель</th>
-                                        <th id="table-head contractor_expected_organization_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head contractor_expected_organization_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Организация-исполнитель (предполагаемый исполнитель)</th>
-                                        <th id="table-head info_submission_deadline_to_contractor_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head info_submission_deadline_to_contractor_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок представления необходимой информации (докладной записки о внесении изменений в комплекс программных средств, 
                                             заявки на сопровождение) организации-исполнителю</th>
-                                        <th id="table-head work_execution_deadline_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head work_execution_deadline_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Срок выполнения работы</th>
-                                        <th id="table-head belstat_responsible_persons_choice_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_responsible_persons_choice_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Ответственные за выполнение работы в Белстате</th>
-                                        <th id="table-head official_stat_info_name_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_name_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование официальной статистической информации</th>
-                                        <th id="table-head official_stat_info_periodicity_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Периодичность представления официальной статистической информации</th>
-                                        <th id="table-head official_stat_info_recipient_org_col" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head official_stat_info_recipient_org_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
                                             Наименование организации, в которую представляется официальная статистическая информация</th>
                                         <th id="table-head action_buttons" class="py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup">
                                             Действия
@@ -1253,7 +1253,7 @@
                                         </td>
                                         <div id="suggestions" class="suggestions" style="display:none;"></div>  <!-- Справочник/ручной ввод поле-->
                                     </tr>
-                                                                        <tr id="plan_row" class="hover:bg-gray-50 transition-colors t-row not-approved">
+                                    <tr id="plan_row" class="hover:bg-gray-50 transition-colors t-row not-approved">
                                         <td id="number_row" class="py-4 px-6 border-b border-gray-200 text-sm">
                                             <div id="number_row_div" class="input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
                                                 <span
@@ -2048,7 +2048,7 @@
         </div>
         <div id="year-floating-selector">
             <label class="block text-sm mb-1 font-medium text-gray-600">
-                Сменить год
+                Выберите для смены года:
             </label>
             <select id="year-dropdown"
                     class="px-3 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500">
@@ -2061,6 +2061,7 @@
         <script src="../js/dropdown-list-with-manual.js" defer></script>
         <script src="../js/dropdown-with-chosen-options.js" defer></script>
         <script src="../js/dropdown-hidden-columns.js" defer></script>
+        <script src="../js/sort-table-func.js" defer></script>
         <script src="../js/modal-windows-func.js" defer></script>
     </body>
 </html>

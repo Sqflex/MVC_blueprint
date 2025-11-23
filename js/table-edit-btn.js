@@ -28,7 +28,6 @@ jQuery(document).ready(function($){
         let inputWrappers = currentBtn.parent().parent().parent().children().children('.input-wrapper');
         let inputs = currentBtn.parent().parent().parent().children().children('.input-wrapper').children('.input-field');
         let chosenButtons = inputWrappers.children('.chosen-container').children('.chosen-item').children('#delete-chosen');
-        console.log(inputs);
 
         for(let i = 0; i < inputs.length; i++) {
             let input = inputs.get(i);
@@ -108,9 +107,11 @@ jQuery(document).ready(function($){
     });
 
     // Чекбокс "Подтвержден"
-    $('#row-approved').change(function() {
+    $('#row-approved').on('change', function() {
         let currCheckbox = $(this).parent();
         let currRow = $(this).parent().parent().parent().parent();
+        console.log(currCheckbox);
+        console.log(currRow);
         if ($(this).is(':checked')) {
             currCheckbox.removeClass('bg-red-500');
             currCheckbox.addClass('bg-green-600');
@@ -129,7 +130,6 @@ jQuery(document).ready(function($){
     $('#add-row-pp-table').on('click', function() {
         if (universalId === 1) {
             let allRows = $('#Prod-plan-table tbody').children('tr');
-            console.log(allRows);
             for (let i = 0; i < allRows.length; i++) {
                 universalId+=1;
             }
@@ -505,11 +505,9 @@ jQuery(document).ready(function($){
                                         <div id="suggestions" class="suggestions" style="display:none;"></div>  <!-- Справочник/ручной ввод поле-->
                                     </tr>   
         `);
-        console.log(universalId);
         $('#Prod-plan-table tbody').append($newRow);
 
         $newRow.find('.datefield').datepicker();
-        console.log(universalId);
         universalId+=1;
     });
 

@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
         $('#main-stats .main-btn').removeClass('active');
         $(this).addClass('active');
         $('#years-wrapper').css('display', 'block');
+        $('#year-floating-selector').css('display', 'none');
         $('#chapters-wrapper').css('display', 'none');
         $('#table-wrapper').css('display', 'none');
         $('#approved-wrapper').css('display', 'none');
@@ -50,12 +51,6 @@ jQuery(document).ready(function($) {
         $('#chapters-wrapper').show();
         $('#years-wrapper').css('display', 'none');
 
-        $('#current-year').text(
-            'Текущий год производственного планирования - ' + selectedYear
-        );
-
-        $('#year-section').slideUp(300);
-
         if ($('#year-dropdown option').length === 0) {
             $('#year-buttons .year-btn').each(function() {
                 const year = $(this).text();
@@ -72,10 +67,15 @@ jQuery(document).ready(function($) {
 
     $('#year-dropdown').on('change', function() {
         const newYear = $(this).val();
+        let currentChapter = $('#chapter-buttons').children('.active').text();
 
-        $('#current-year').text(
-            'Текущий год производственного планирования - ' + newYear
-        );
+        $('#chapters-wrapper').css('display', 'block');
+        $('#table-wrapper').css('display', 'none');
+        $('#approved-wrapper').css('display', 'none');
+        $('#chapter-buttons .chapter-btn').removeClass('active');
+        $('#chapter-buttons').css("display", "grid");
+        $('#chapter-section').addClass('mb-6');
+        $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
 
         console.log('Год изменён на:', newYear);
     });
