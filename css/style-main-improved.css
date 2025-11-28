@@ -1101,3 +1101,7 @@ th.sortable.desc::after {
     content: "↓";
     opacity: 1;
 }
+
+.main-btn {
+    margin-top: 8px;
+}

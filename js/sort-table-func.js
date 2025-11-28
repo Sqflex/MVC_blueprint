@@ -44,4 +44,3 @@ $('#Prod-plan-table th.sortable').on('click', function () {
     $.each(rows, (i, row) => tbody.append(row));
 });
 
-/* ---- row-aprroved need to be fixed ---- */

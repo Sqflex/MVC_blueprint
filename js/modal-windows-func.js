@@ -2,26 +2,26 @@
 $(document).ready(function () {
     
     /* --- Разделы статистики --- */
-    $("#add-main-btn").on("click", function () {
-        $("#mainModal").fadeIn(150);
-    });
+    // $("#add-main-btn").on("click", function () {
+    //     $("#mainModal").fadeIn(150);
+    // });
 
-    $(".close-btn").on("click", function () {
-        $("#mainModal").fadeOut(150);
-    });
+    // $(".close-btn").on("click", function () {
+    //     $("#mainModal").fadeOut(150);
+    // });
 
-    $("#saveMain").on("click", function () {
-        const value = $("#mainInput").val();
-        console.log("Saved main:", value);
-        $("#mainModal").fadeOut(150);
-        $('#add-main-btn').before(`
-            <button
-                class="main-btn px-6 py-3 bg-gray-200 text-gray-700
-                font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
-                ${value}
-            </button>
-        `);
-    });
+    // $("#saveMain").on("click", function () {
+    //     const value = $("#mainInput").val();
+    //     console.log("Saved main:", value);
+    //     $("#mainModal").fadeOut(150);
+    //     $('#add-main-btn').before(`
+    //         <button
+    //             class="main-btn px-6 py-3 bg-gray-200 text-gray-700
+    //             font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+    //             ${value}
+    //         </button>
+    //     `);
+    // });
 
     $(window).on("click", function (e) {
         if ($(e.target).is("#mainModal")) {
