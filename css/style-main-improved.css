@@ -832,6 +832,7 @@ span:focus {
 
 thead tr, thead th, thead{
     position: sticky;
+    z-index: 10;
     top: -25px;
 }
 
@@ -1030,6 +1031,7 @@ thead tr, thead th, thead{
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
+  z-index: 999;
 }
 
 .h2-modal {
@@ -1049,7 +1051,7 @@ thead tr, thead th, thead{
   position: relative;
 }
 
-.close-btn {
+.close-main-btn, .close-chapters-btn, .close-years-btn {
     display: flex;
     justify-content: center;
     position: absolute;

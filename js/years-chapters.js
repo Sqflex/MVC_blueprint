@@ -1,4 +1,104 @@
 /* ------- Развернуть разделы глав и годов ----------------- */
+
+let currentChapterID = null;
+let planId = null;
+let currentYear = new Date().getFullYear();
+
+function loadYearsFromPlans(branchId, chapterId, defaultYear) {
+
+    $.ajax({
+        url: `http://localhost:8080/api/v1/plans/years?branchId=${branchId}&chapterId=${chapterId}`,
+        type: 'GET',
+        dataType: 'json',
+        success: function (plans) {
+
+            const $dropdown = $('#year-dropdown');
+            $dropdown.empty();
+
+            // Extract UNIQUE years from plans
+            let years = [...new Set(plans.map(p => p.year))];
+
+            // If no plans yet → use current year
+            if (years.length === 0) {
+                years = [defaultYear];
+            }
+
+            // Sort years DESC
+            years.sort((a, b) => b - a);
+
+            // Fill dropdown
+            years.forEach(year => {
+                $dropdown.append(
+                    $('<option>').val(year).text(year)
+                );
+            });
+
+            // Ensure current year exists
+            if (!years.includes(defaultYear)) {
+                $dropdown.append(
+                    $('<option>').val(defaultYear).text(defaultYear)
+                );
+            }
+
+            $dropdown.val(defaultYear);
+
+            loadOrCreatePlan(branchId, chapterId, defaultYear);
+        },
+        error: function (xhr) {
+            console.error('Failed to load years:', xhr.responseText);
+        }
+    });
+}
+
+function loadOrCreatePlan(branchId, chapterId, year) {
+
+    $.ajax({
+        url: `http://localhost:8080/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
+        type: 'GET',
+        success: function (plan) {
+            console.log('Plan loaded:', plan);
+        },
+        error: function (xhr) {
+            if (xhr.status === 404) {
+                createPlan(branchId, chapterId, year);
+            } else {
+                console.error('Failed to load plan:', xhr.responseText);
+            }
+        }
+    });
+}
+
+function createPlan(branchId, chapterId, year) {
+
+    $.ajax({
+        url: 'http://localhost:8080/api/v1/plans',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            branchId: branchId,
+            chapterId: chapterId,
+            year: year
+        }),
+        success: function (plan) {
+            console.log('Plan created:', plan);
+        },
+        error: function (xhr) {
+            console.error('Failed to create plan:', xhr.responseText);
+        }
+    });
+}
+
+$('#year-dropdown').on('change', function () {
+
+    const selectedYear = Number($(this).val());
+    currentYear = selectedYear;
+
+    if (!currentBranchID || !currentChapterID) return;
+
+    loadOrCreatePlan(currentBranchID, currentChapterID, selectedYear);
+});
+
+
 jQuery(document).ready(function($) {                
     $(document).on('click', '.max-chapter', function(){
         $('#chapter-buttons').css("display", "grid");
@@ -20,19 +120,19 @@ jQuery(document).ready(function($) {
     $('#main-stats').on('click', '.main-btn', function() {
         $('#main-stats .main-btn').removeClass('active');
         $(this).addClass('active');
-        $('#years-wrapper').css('display', 'block');
+        $('#years-wrapper').css('display', 'none');
         $('#year-floating-selector').css('display', 'none');
-        $('#chapters-wrapper').css('display', 'none');
+        $('#chapters-wrapper').css('display', 'block');
         $('#table-wrapper').css('display', 'none');
         $('#approved-wrapper').css('display', 'none');
 
         /* -------- reset -------- */
-        let currentYear = $('#year-buttons').children('.active').text();
-        $('#year-buttons .year-btn').removeClass('active');
-        $('#year-buttons').css("display", "grid");
-        $('#add-year-button-section').css("display", "flex");
-        $('#year-section').addClass('mb-6');
-        $('#current-year').html($('#current-year').html().replace("Текущий год производственного планирования - " + currentYear, "Года производственных планирований"));
+        // let currentYear = $('#year-buttons').children('.active').text();
+        // $('#year-buttons .year-btn').removeClass('active');
+        // $('#year-buttons').css("display", "grid");
+        // $('#add-year-button-section').css("display", "flex");
+        // $('#year-section').addClass('mb-6');
+        // $('#current-year').html($('#current-year').html().replace("Текущий год производственного планирования - " + currentYear, "Года производственных планирований"));
 
         let currentChapter = $('#chapter-buttons').children('.active').text();
         $('#chapter-buttons .chapter-btn').removeClass('active');
@@ -41,43 +141,15 @@ jQuery(document).ready(function($) {
         $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
     });
 
-    $('#year-buttons').on('click', '.year-btn', function() {
+    $('#chapter-buttons').on('click', '.chapter-btn', function () {
 
-        const selectedYear = $(this).text();
-
-        $('#year-buttons .year-btn').removeClass('active');
-        $(this).addClass('active');
-
-        $('#chapters-wrapper').show();
-        $('#years-wrapper').css('display', 'none');
-
-        if ($('#year-dropdown option').length === 0) {
-            $('#year-buttons .year-btn').each(function() {
-                const year = $(this).text();
-                $('#year-dropdown').append(
-                    `<option value="${year}">${year}</option>`
-                );
-            });
-        }
-
-        $('#year-dropdown').val(selectedYear);
-
+        currentChapterID = $(this).data('chapter-id');
+        currentYear = new Date().getFullYear();
+    
+        if (!currentBranchID || !currentChapterID) return;
+    
+        loadYearsFromPlans(currentBranchID, currentChapterID, currentYear);
         $('#year-floating-selector').fadeIn(200);
-    });
-
-    $('#year-dropdown').on('change', function() {
-        const newYear = $(this).val();
-        let currentChapter = $('#chapter-buttons').children('.active').text();
-
-        $('#chapters-wrapper').css('display', 'block');
-        $('#table-wrapper').css('display', 'none');
-        $('#approved-wrapper').css('display', 'none');
-        $('#chapter-buttons .chapter-btn').removeClass('active');
-        $('#chapter-buttons').css("display", "grid");
-        $('#chapter-section').addClass('mb-6');
-        $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
-
-        console.log('Год изменён на:', newYear);
     });
 
 
@@ -96,25 +168,3 @@ jQuery(document).ready(function($) {
             }, 1000);
         });
     });
-
-    // $('#year-buttons').on('click', '.year-btn', function() {
-    //     $('#year-buttons .year-btn').removeClass('active');
-    //     $(this).addClass('active');
-    //     $('#chapters-wrapper').css('display', 'block');
-    //     $('#table-wrapper').css('display', 'none');
-    //     $('#approved-wrapper').css('display', 'none');
-
-    //     /* ------- Свернуть главы -------- */
-    //     let currentChapter = $('#chapter-buttons').children('.active').text();
-    //     $('#chapter-buttons .chapter-btn').removeClass('active');
-    //     $('#chapter-buttons').css("display", "grid");
-    //     $('#chapter-section').addClass('mb-6');
-    //     $('#current-chapter').html($('#current-chapter').html().replace("Текущая глава статистики - " + currentChapter, "Главы статистики"));
-
-    //     /* ------- Свернуть года -------- */
-    //     $('#year-buttons').css("display", "none");
-    //     $('#add-year-button-section').css("display", "none");
-    //     $('#year-section').removeClass();
-    //     let currentYear = $('#year-buttons').children('.active').text();
-    //     $('#current-year').html($('#current-year').html().replace("Года производственных планирований", "Текущий год производственного планирования - " + currentYear));
-    // });

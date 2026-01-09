@@ -14,13 +14,13 @@ function loadBranches() {
                     .text(branch.branchName)
                     .attr("data-branch-id", branch.branchId);
 
-                // обработчик клика
-                $button.on("click", function () {
-                    $(".main-btn").removeClass("bg-blue-500 text-white");
-                    $(this).addClass("bg-blue-500 text-white");
+                // // обработчик клика
+                // $button.on("click", function () {
+                //     $(".main-btn").removeClass("bg-blue-500 text-white");
+                //     $(this).addClass("bg-blue-500 text-white");
 
-                    console.log("Выбрана ветка:", branch.branchId);
-                });
+                //     // console.log("Выбрана ветка:", branch.branchId);
+                // });
 
                 $container.append($button);
             });
@@ -45,7 +45,7 @@ $(document).ready(function () {
         $("#mainModal").fadeIn(150);
     });
 
-    $(".close-btn").on("click", function () {
+    $(".close-main-btn").on("click", function () {
         $("#mainModal").fadeOut(150);
     });
 
