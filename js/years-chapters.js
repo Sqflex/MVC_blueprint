@@ -62,7 +62,6 @@ function loadOrCreatePlan(branchId, chapterId, year) {
             loadPlanRows();
             loadColumnVisibility(currentPlanId);
             fetchPlanRows(currentPlanId);
-            universalId = 1;
         },
         error: function (xhr) {
             if (xhr.status === 404) {
@@ -72,7 +71,6 @@ function loadOrCreatePlan(branchId, chapterId, year) {
                     loadPlanRows();
                     loadColumnVisibility(currentPlanId);
                     fetchPlanRows(currentPlanId);
-                    universalId = 1;
                 });                
             } else {
                 console.error('Failed to load plan:', xhr.responseText);

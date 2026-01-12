@@ -1,4 +1,4 @@
-let universalId = 1;
+let universalId = 0;
 
 const ROW_FIELDS = [
     'rowsId',
@@ -47,6 +47,16 @@ const ROW_FIELDS = [
     'officialStatInfoPeriodicityRow',
     'officialStatInfoRecipientOrgRow'
 ];
+
+function formatDateToDDMMYYYY(dateStr) {
+    if (!dateStr) return '';
+
+    // Expecting dateStr like '2025-12-31'
+    const parts = dateStr.split('-'); // ['2025', '12', '31']
+    if (parts.length !== 3) return dateStr; // fallback
+
+    return `${parts[2]}.${parts[1]}.${parts[0]}`; // dd.mm.yyyy
+}
 
 function getCellValue($td) {
     const $input = $td.find('input, select');
@@ -114,40 +124,66 @@ function renderRow(rowData) {
 
     columns.forEach((col, index) => {
         if (!visibleCols.includes(index)) return;
-
-        let cellValue = rowData[col] !== null ? rowData[col] : '';
+    
         let $td = $('<td>', {
             class: 'py-4 px-6 border-b border-gray-200 td-prop',
             'data-field': col
         });
-        let $div = $('<div>', { class: 'input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500'});
+    
+        let $div = $('<div>', {
+            class: 'input-wrapper w-full p-2 border-gray-300 rounded-md'
+        });
+    
         $td.append($div);
-
-        // Decide input type
+    
+        if (col === 'rowsId') {
+            let $span = $('<span>', {
+                class: 'input-field text-field font-semibold',
+                text: universalId
+            });
+    
+            $div.append($span);
+            $tr.append($td);
+            return;
+        }
+    
+        let cellValue = rowData[col] !== null ? rowData[col] : '';
+    
         if (col.toLowerCase().includes('date') || col.toLowerCase().includes('deadline')) {
+            let formattedValue = formatDateToDDMMYYYY(cellValue);
+        
             let $input = $('<input>', {
                 type: 'text',
                 class: 'datefield input-field',
-                value: cellValue,
+                value: formattedValue,
                 disabled: true
             });
             $div.append($input);
-        } else if (col.toLowerCase().includes('select') || col.toLowerCase().includes('choice') || col.toLowerCase().includes('result')) {
+        } else if (
+            col.toLowerCase().includes('choice') ||
+            col.toLowerCase().includes('result') ||
+            col.toLowerCase().includes('periodicity')
+        ) {
             let $select = $('<select>', {
                 class: 'input-field dict-field',
                 disabled: true
-            }).append($('<option>', { value: '', text: cellValue || 'Выберите из справочника' }));
+            }).append(
+                $('<option>', {
+                    value: '',
+                    text: cellValue || 'Выберите из справочника'
+                })
+            );
             $div.append($select);
+    
         } else {
             let $span = $('<span>', {
                 class: 'input-field text-field',
-                role: 'textbox',
                 contenteditable: false,
                 text: cellValue
             });
             $div.append($span);
         }
-
+    
         $tr.append($td);
     });
 
@@ -177,6 +213,8 @@ function renderRow(rowData) {
 
 // Fetch all rows
 function fetchPlanRows(planId) {
+    universalId = 0;
+
     $.ajax({
         url: `http://localhost:8080/api/v1/planRows/byPlan/${planId}`,
         type: 'GET',
@@ -191,10 +229,11 @@ function fetchPlanRows(planId) {
     });
 }
 
+
 // Delete row handler
-$(document).on('click', '#delete-row', function() {
-    let $row = $(this).closest('tr');
-    const rowId = Number($row.attr('rowId'));
+$(document).on('click', '#delete-row', function () {
+    const $row = $(this).closest('tr');
+    const rowId = Number($row.data('rowId'));
 
     if (!rowId) {
         console.error('Row ID not found!');
@@ -206,11 +245,11 @@ $(document).on('click', '#delete-row', function() {
     $.ajax({
         url: `http://localhost:8080/api/v1/planRows/${rowId}`,
         type: 'DELETE',
-        success: function() {
+        success: function () {
             $row.remove();
             console.log(`Row ${rowId} deleted successfully`);
         },
-        error: function(err) {
+        error: function (err) {
             console.error('Error deleting row:', err);
             alert('Не удалось удалить строку.');
         }
@@ -274,8 +313,8 @@ $(document).ready(function($) {
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(newRowBody),
-            success: function(createdRow) {
-                renderRow(createdRow);
+            success: function () {
+                fetchPlanRows(currentPlanId);
             },
             error: function(xhr, status, error) {
                 console.error('Ошибка при добавлении строки:', error);
