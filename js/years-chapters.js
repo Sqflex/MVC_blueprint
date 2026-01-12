@@ -1,7 +1,7 @@
 /* ------- Развернуть разделы глав и годов ----------------- */
 
 let currentChapterID = null;
-let planId = null;
+let currentPlanId = null;
 let currentYear = new Date().getFullYear();
 
 function loadYearsFromPlans(branchId, chapterId, defaultYear) {
@@ -57,10 +57,23 @@ function loadOrCreatePlan(branchId, chapterId, year) {
         type: 'GET',
         success: function (plan) {
             console.log('Plan loaded:', plan);
+            console.log(plan.planId);
+            currentPlanId = plan.planId;
+            loadPlanRows();
+            loadColumnVisibility(currentPlanId);
+            fetchPlanRows(currentPlanId);
+            universalId = 1;
         },
         error: function (xhr) {
             if (xhr.status === 404) {
-                createPlan(branchId, chapterId, year);
+                createPlan(branchId, chapterId, year, function (planId) {
+                    console.log("planId set to:", planId);
+                    currentPlanId = planId;
+                    loadPlanRows();
+                    loadColumnVisibility(currentPlanId);
+                    fetchPlanRows(currentPlanId);
+                    universalId = 1;
+                });                
             } else {
                 console.error('Failed to load plan:', xhr.responseText);
             }
@@ -68,8 +81,7 @@ function loadOrCreatePlan(branchId, chapterId, year) {
     });
 }
 
-function createPlan(branchId, chapterId, year) {
-
+function createPlan(branchId, chapterId, year, onSuccess) {
     $.ajax({
         url: 'http://localhost:8080/api/v1/plans',
         type: 'POST',
@@ -80,13 +92,21 @@ function createPlan(branchId, chapterId, year) {
             year: year
         }),
         success: function (plan) {
-            console.log('Plan created:', plan);
+            $.ajax({
+                url: `http://localhost:8080/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
+                type: 'GET',
+                success: function (plan) {
+                    console.log("Fetched after create:", plan);
+                    onSuccess(plan.planId);
+                }
+            });
         },
         error: function (xhr) {
-            console.error('Failed to create plan:', xhr.responseText);
+            console.error("Failed to create plan:", xhr.responseText);
         }
     });
 }
+
 
 $('#year-dropdown').on('change', function () {
 
