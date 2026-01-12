@@ -1,5 +1,78 @@
 let universalId = 1;
 
+const ROW_FIELDS = [
+    'rowsId',
+    'mainStatisticalSourceRow',
+    'additionalStatisticalSourceRow',
+    'additionalSourceDeadlineRow',
+    'workNameRow',
+    'workPeriodicityRow',
+    'industryRow',
+    'executorDepartmentRow',
+    'responsibleExecutorRow',
+    'reportingPeriodRow',
+    'primaryDataCollectionStartDateRow',
+    'primaryDataSubmissionDeadlineRow',
+    'departmentTransferToGsuDeadlineRow',
+    'transferToBelstatGsuDeadlineRow',
+    'transferTimeToBelstatRow',
+    'correctedDataToLongtermDbDeadlineRow',
+    'belstatWorkDeadlineRow',
+    'gsuWorkDeadlineRow',
+    'belstatDevelopmentBreakdownRow',
+    'gsuDevelopmentBreakdownRow',
+    'aggregatedDataRecipientDepartmentRow',
+    'belstatWorkResultRow',
+    'gsuWorkResultRow',
+    'publicationDeadlineRow',
+    'statusOfWorkRow',
+    'workDeadlineRow',
+    'executorsRow',
+    'coexecutorsBelstatRow',
+    'dataRegistrySourcesRow',
+    'gsuWorkPeriodicityRow',
+    'belstatWorkPeriodicityRow',
+    'deadlineTransferGsuToBelstatRow',
+    'deadlineTransferDepartmentsToGsuRow',
+    'samplingSourceRow',
+    'developmentBreakdownIdRow',
+    'contractConclusionDeadlineRow',
+    'industrialOperationStartDeadlineRow',
+    'contractorOrganizationRow',
+    'contractorExpectedOrganizationRow',
+    'infoSubmissionDeadlineToContractorRow',
+    'workExecutionDeadlineRow',
+    'belstatResponsiblePersonsChoiceRow',
+    'officialStatInfoNameRow',
+    'officialStatInfoPeriodicityRow',
+    'officialStatInfoRecipientOrgRow'
+];
+
+function getCellValue($td) {
+    const $input = $td.find('input, select');
+
+    if ($input.length) {
+        let val = $input.val();
+
+        if (!val || val.trim() === '') return null;
+
+        if (/^\d{2}\.\d{2}\.\d{4}$/.test(val)) {
+            const [d, m, y] = val.split('.');
+            return `${y}-${m}-${d}`;
+        }
+
+        return val;
+    }
+
+    const $span = $td.find('[contenteditable]');
+    if ($span.length) {
+        let text = $span.text().trim();
+        return text === '' ? null : text;
+    }
+
+    return null;
+}
+
 // Get visible columns
 function getVisibleColumns() {
     let visibleCols = [];
@@ -15,6 +88,7 @@ function getVisibleColumns() {
 function renderRow(rowData) {
     const visibleCols = getVisibleColumns();
     universalId++;
+
 
     let $tr = $('<tr>', {
         class: 'hover:bg-gray-50 transition-colors t-row not-approved',
@@ -42,7 +116,12 @@ function renderRow(rowData) {
         if (!visibleCols.includes(index)) return;
 
         let cellValue = rowData[col] !== null ? rowData[col] : '';
-        let $td = $('<td>', { class: 'py-4 px-6 border-b border-gray-200 td-prop' });
+        let $td = $('<td>', {
+            class: 'py-4 px-6 border-b border-gray-200 td-prop',
+            'data-field': col
+        });
+        let $div = $('<div>', { class: 'input-wrapper w-full p-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500'});
+        $td.append($div);
 
         // Decide input type
         if (col.toLowerCase().includes('date') || col.toLowerCase().includes('deadline')) {
@@ -52,13 +131,13 @@ function renderRow(rowData) {
                 value: cellValue,
                 disabled: true
             });
-            $td.append($input);
+            $div.append($input);
         } else if (col.toLowerCase().includes('select') || col.toLowerCase().includes('choice') || col.toLowerCase().includes('result')) {
             let $select = $('<select>', {
                 class: 'input-field dict-field',
                 disabled: true
             }).append($('<option>', { value: '', text: cellValue || 'Выберите из справочника' }));
-            $td.append($select);
+            $div.append($select);
         } else {
             let $span = $('<span>', {
                 class: 'input-field text-field',
@@ -66,7 +145,7 @@ function renderRow(rowData) {
                 contenteditable: false,
                 text: cellValue
             });
-            $td.append($span);
+            $div.append($span);
         }
 
         $tr.append($td);
@@ -115,7 +194,7 @@ function fetchPlanRows(planId) {
 // Delete row handler
 $(document).on('click', '#delete-row', function() {
     let $row = $(this).closest('tr');
-    let rowId = $row.data('rowId');
+    const rowId = Number($row.attr('rowId'));
 
     if (!rowId) {
         console.error('Row ID not found!');
@@ -202,5 +281,145 @@ $(document).ready(function($) {
                 console.error('Ошибка при добавлении строки:', error);
             }
         });
+    });
+
+    $(document).on('click', '#edit-row', function() {
+    let currentBtn = $(this);
+
+    currentBtn.removeClass('bg-yellow-100');
+    currentBtn.removeClass('text-yellow-600');
+    currentBtn.removeClass('hover:bg-yellow-200');
+    currentBtn.removeClass('focus:ring-yellow-500');
+
+    currentBtn.addClass('bg-green-100');
+    currentBtn.addClass('text-green-600');
+    currentBtn.addClass('hover:bg-green-200');
+    currentBtn.addClass('focus:ring-green-500');
+
+    currentBtn.children().html('Done');
+    currentBtn.removeAttr('id');
+    currentBtn.attr('id', 'done-row');
+
+    let inputWrappers = currentBtn.parent().parent().parent().children().children('.input-wrapper');
+    let inputs = currentBtn.parent().parent().parent().children().children('.input-wrapper').children('.input-field');
+    let chosenButtons = inputWrappers.children('.chosen-container').children('.chosen-item').children('#delete-chosen');
+
+    for(let i = 0; i < inputs.length; i++) {
+        let input = inputs.get(i);
+        let inputWrapper = inputWrappers.get(i);
+        let chosenButton = chosenButtons.get(i);
+        input.removeAttribute('disabled');
+        input.setAttribute('contenteditable', 'true');
+
+        if (typeof(chosenButton) !== 'undefined') {
+            chosenButton.removeAttribute('disabled');
+        }
+
+        inputWrapper.classList.add('in-edit-mode');
+        $(input).css('cursor', 'pointer');
+    }
+
+});
+
+// Кнопка "сохранить"
+$(document).on('click', '#done-row', function() {
+    let currBtn = $(this);
+
+    currBtn.removeClass('bg-green-100');
+    currBtn.removeClass('text-green-600');
+    currBtn.removeClass('hover:bg-green-200');
+    currBtn.removeClass('focus:ring-green-500');
+
+    currBtn.addClass('bg-yellow-100');
+    currBtn.addClass('text-yellow-600');
+    currBtn.addClass('hover:bg-yellow-200');
+    currBtn.addClass('focus:ring-yellow-500');
+
+    currBtn.children().html('edit');
+    currBtn.removeAttr('id');
+    currBtn.attr('id', 'edit-row');
+
+    let inputWrappers = currBtn.parent().parent().parent().children().children('.input-wrapper');
+
+    for (let i = 0; i < inputWrappers.length; i++) {
+        let inputDictField = inputWrappers.children('.input-dict-field').get(i);
+        let dictField = inputWrappers.children('.dict-field').get(i);
+        let chosenButton = inputWrappers.children('.chosen-container').children('.chosen-item').children('#delete-chosen').get(i);
+        let inputText = inputWrappers.children('.text-field').get(i);
+        let inputDate = inputWrappers.children('.datefield').get(i);
+        let inputWrapper = inputWrappers.get(i);
+
+        if (typeof(inputText) !== 'undefined') {
+            inputText.setAttribute('contenteditable', 'false'); 
+            inputText.setAttribute('value', inputText.innerText);
+            $(inputText).css('cursor', 'default');
+        }
+
+        if (typeof(inputDate) !== 'undefined') {
+            inputDate.setAttribute('disabled', 'false');
+            inputDate.setAttribute('contenteditable', 'false');
+            inputDate.setAttribute('value', inputDate.value);
+            $(inputDate).css('cursor', 'default');
+        }
+
+        if (typeof(inputDictField) !== 'undefined') {
+            inputDictField.setAttribute('contenteditable', 'false');
+            inputDictField.setAttribute('value', inputDictField.value);
+            $(inputDictField).css('cursor', 'default');
+        }
+
+        if (typeof(dictField) !== 'undefined') {
+            dictField.setAttribute('disabled', 'false');
+            dictField.setAttribute('value', dictField.value);
+            $(dictField).css('cursor', 'default');
+        }
+
+        if (typeof(chosenButton) !== 'undefined') {
+            chosenButton.setAttribute('disabled', 'false');
+        }
+        inputWrapper.classList.remove('in-edit-mode');
+    }
+
+    const $row = $(this).closest('tr');
+    const rowId = $row.data('rowId');
+
+
+    if (!rowId) {
+        alert('Row ID not found');
+        return;
+    }
+
+    let body = {
+        rowsId: rowId,
+        planId: currentPlanId
+    };
+
+    // Collect data from visible + hidden columns in DOM order
+    $row.find('td.td-prop').each(function () {
+        const fieldName = $(this).data('field');
+        if (!fieldName || fieldName === 'rowsId') return;
+
+        body[fieldName] = getCellValue($(this));
+    });
+
+
+    $.ajax({
+        url: 'http://localhost:8080/api/v1/planRows',
+        method: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        success: function () {
+            // lock row back
+            $row.find('input, select').prop('disabled', true);
+            $row.find('[contenteditable]').attr('contenteditable', false);
+
+            console.log(`Row ${rowId} updated`);
+        },
+        error: function (err) {
+            console.error('PUT failed:', err);
+            alert('Не удалось сохранить изменения');
+        }
+    });
+    
     });
 });
