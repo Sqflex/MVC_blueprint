@@ -51,9 +51,8 @@ const ROW_FIELDS = [
 function formatDateToDDMMYYYY(dateStr) {
     if (!dateStr) return '';
 
-    // Expecting dateStr like '2025-12-31'
     const parts = dateStr.split('-'); // ['2025', '12', '31']
-    if (parts.length !== 3) return dateStr; // fallback
+    if (parts.length !== 3) return dateStr;
 
     return `${parts[2]}.${parts[1]}.${parts[0]}`; // dd.mm.yyyy
 }
@@ -94,7 +93,6 @@ function getVisibleColumns() {
     return visibleCols;
 }
 
-// Render a single row based on API data and visible columns
 function renderRow(rowData) {
     const visibleCols = getVisibleColumns();
     universalId++;
@@ -105,7 +103,6 @@ function renderRow(rowData) {
         'data-row-id': rowData.rowsId
     });
 
-    // Columns order matches your table
     const columns = [
         'rowsId', 'mainStatisticalSourceRow', 'additionalStatisticalSourceRow', 'additionalSourceDeadlineRow',
         'workNameRow', 'workPeriodicityRow', 'industryRow', 'executorDepartmentRow', 'responsibleExecutorRow',
@@ -187,7 +184,6 @@ function renderRow(rowData) {
         $tr.append($td);
     });
 
-    // Actions column
     let $actionsTd = $(`
         <td class="py-4 px-6 border-b border-gray-200 text-center" data-field="actionBtns">
             <div class="flex justify-center space-x-3">
@@ -256,7 +252,6 @@ $(document).on('click', '#delete-row', function () {
     });
 });
 
-// Add new row
 $(document).ready(function($) {
 
     $('#add-row-pp-table').on('click', function() {
@@ -343,7 +338,7 @@ $(document).ready(function($) {
     let inputs = currentBtn.parent().parent().parent().children().children('.input-wrapper').children('.input-field');
     let chosenButtons = inputWrappers.children('.chosen-container').children('.chosen-item').children('#delete-chosen');
 
-    for(let i = 0; i < inputs.length; i++) {
+    for(let i = 1; i < inputs.length; i++) {
         let input = inputs.get(i);
         let inputWrapper = inputWrappers.get(i);
         let chosenButton = chosenButtons.get(i);
