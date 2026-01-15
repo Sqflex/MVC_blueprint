@@ -457,3 +457,16 @@ $(document).on('click', '#done-row', function() {
     
     });
 });
+
+$('#Prod-plan-table').on('change', '.row-approved-checkbox', function() {
+    const $checkboxContainer = $(this).closest('div');
+    const $row = $(this).closest('tr');
+
+    if ($(this).is(':checked')) {
+        $checkboxContainer.removeClass('bg-red-500').addClass('bg-green-600');
+        $row.removeClass('not-approved').addClass('approved');
+    } else {
+        $checkboxContainer.removeClass('bg-green-600').addClass('bg-red-500');
+        $row.removeClass('approved').addClass('not-approved');
+    }
+});
