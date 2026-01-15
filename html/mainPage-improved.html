@@ -257,10 +257,10 @@
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Производственный план</h2>
                             
                             <div class="flex gap-3">
-                                <!-- <div id="date-filter-controls" class="flex space-x-3 mb-3">
-                                    <input type="text" id="filter-date" placeholder="Выберите дату" class="datefield border p-2 rounded">
-
-                                    <select id="filter-operator" class="border p-2 rounded">
+                                <div id="date-filter-controls" class="filter-bar">
+                                    <input type="text" id="filter-date" placeholder="Дата" class="filter-input datefield" autocomplete="off">
+                                
+                                    <select id="filter-operator" class="filter-select">
                                         <option value="=">=</option>
                                         <option value=">">&gt;</option>
                                         <option value=">=">&gt;=</option>
@@ -268,26 +268,32 @@
                                         <option value="<=">&lt;=</option>
                                     </select>
 
-                                    <select id="filter-column" class="border p-2 rounded">
-                                        <option value="additional_source_deadline_row">Срок представления данных (информации) дополнительного источника</option>
-                                        <option value="primary_data_collection_start_date_row">Дата начала сбора первичных статистических данных</option>
-                                        <option value="primary_data_submission_deadline_row">Срок представления респондентами первичных статистических данных</option>
-                                        <option value="department_transfer_to_gsu_deadline_row">Срок передачи в ГСУ отделами статистики ГСУ</option>
-                                        <option value="transfer_to_belstat_gsu_deadline_row">Срок передачи в Белстат ГСУ (окончания обработки в ЕИСГС ГСУ)</option>
-                                        <option value="belstat_work_deadline_row">Срок выполнения работы Белстатом</option>
-                                        <option value="gsu_work_deadline_row">Срок выполнения работы ГСУ</option>
-                                        <option value="publication_deadline_row">Срок выполнения работы (публикации значений статистического показателя, выпуска статистического издания)</option>
-                                        <option value="work_deadline_row">Срок выполнения работы</option>
-                                        <option value="deadline_transfer_gsu_to_belstat_row">Срок передачи в Белстат ГСУ</option>
-                                        <option value="deadline_transfer_departments_to_gsu_row">Срок передачи в ГСУ отделами статистики ГСУ (выполнения работы отделами статистики ГСУ)</option>
-                                        <option value="contract_conclusion_deadline_row">Срок заключения договора</option>
-                                        <option value="industrial_operation_start_deadline_row">Срок ввода в промышленную эксплуатацию</option>
-                                        <option value="info_submission_deadline_to_contractor_row">Срок представления необходимой информации организации-исполнителю</option>
-                                        <option value="work_execution_deadline_row">Срок выполнения работы</option>
+                                    <select id="filter-column" class="filter-select">
+                                        <option value="additionalSourceDeadlineRow">Срок представления данных дополнительного источника</option>
+                                        <option value="primaryDataCollectionStartDateRow">Дата начала сбора первичных статистических данных</option>
+                                        <option value="primaryDataSubmissionDeadlineRow">Срок представления респондентами первичных статистических данных</option>
+                                        <option value="departmentTransferToGsuDeadlineRow">Срок передачи в ГСУ отделами статистики ГСУ</option>
+                                        <option value="transferToBelstatGsuDeadlineRow">Срок передачи в Белстат ГСУ</option>
+                                        <option value="belstatWorkDeadlineRow">Срок выполнения работы Белстатом</option>
+                                        <option value="gsuWorkDeadlineRow">Срок выполнения работы ГСУ</option>
+                                        <option value="publicationDeadlineRow">Срок выполнения работы (публикации значений статистического показателя) </option>
+                                        <option value="workDeadlineRow">Срок выполнения работы</option>
+                                        <option value="deadlineTransferGsuToBelstatRow">Срок передачи в Белстат ГСУ</option>
+                                        <option value="deadlineTransferDepartmentsToGsuRow">Срок передачи в ГСУ отделами статистики ГСУ</option>
+                                        <option value="contractConclusionDeadlineRow">Срок заключения договора</option>
+                                        <option value="industrialOperationStartDeadlineRow">Срок ввода в промышленную эксплуатацию</option>
+                                        <option value="infoSubmissionDeadlineToContractorRow">Срок представления необходимой информации организации-исполнителю</option>
+                                        <option value="workExecutionDeadlineRow">Срок выполнения работы</option>
                                     </select>
                                 
-                                    <button id="apply-date-filter" class="bg-blue-500 text-white p-2 rounded">Применить</button>
-                                </div> -->
+                                    <button id="apply-date-filter" class="filter-btn filter-btn--apply">
+                                        Применить
+                                    </button>
+
+                                    <button id="reset-date-filter" class="filter-btn filter-btn--reset">
+                                        Сброс
+                                    </button>
+                                </div>
                                 <div class="dropdown-hid-col">
                                     <button class="drop-hid-col-btn py-2 px-4 bg-green-600 text-white rounded-lg shadow-sm font-medium 
                                         transition-all hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center gap-2">
@@ -298,7 +304,7 @@
                                         <div class="checkbox-grid">
                                             <label><input type="checkbox" class="col-toggle" data-col="1">Основной источник формирования статистической информации (индекс формы, иной источник)</label>
                                             <label><input type="checkbox" class="col-toggle" data-col="2">Дополнительный источник данных (информации) для формирования официальной статистической информации (индекс формы, иной источник)</label>
-                                            <label><input type="checkbox" class="col-toggle" data-col="3"></label>
+                                            <label><input type="checkbox" class="col-toggle" data-col="3">Срок представления данных (информации) дополнительного источника</label>
                                             <label><input type="checkbox" class="col-toggle" data-col="4">Наименование работы</label>
                                             <label><input type="checkbox" class="col-toggle" data-col="5">Периодичность выполнения работы</label>
                                             <label><input type="checkbox" class="col-toggle" data-col="6">Отрасль (подотрасль) статистики по КСД</label>
@@ -509,5 +515,6 @@
         <script src="../js/ajax-queries/export-ajax.js" defer></script>
         <script src="../js/ajax-queries/approved-ajax.js" defer></script>
         <script src="../js/ajax-queries/copy-plan-ajax.js" defer></script>
+        <script src="../js/date-filter.js" defer></script>
     </body>
 </html>

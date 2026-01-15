@@ -189,7 +189,7 @@ function renderRow(rowData) {
 
     // Actions column
     let $actionsTd = $(`
-        <td class="py-4 px-6 border-b border-gray-200 text-center">
+        <td class="py-4 px-6 border-b border-gray-200 text-center" data-field="actionBtns">
             <div class="flex justify-center space-x-3">
                 <button id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
                     <span class="material-symbols-outlined text-sm">edit</span>

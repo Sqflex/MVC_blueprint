@@ -57,9 +57,7 @@ function loadOrCreatePlan(branchId, chapterId, year) {
         type: 'GET',
         success: function (plan) {
             console.log('Plan loaded:', plan);
-            console.log(plan.planId);
             currentPlanId = plan.planId;
-            loadPlanRows();
             loadColumnVisibility(currentPlanId);
             fetchPlanRows(currentPlanId);
         },
@@ -68,7 +66,6 @@ function loadOrCreatePlan(branchId, chapterId, year) {
                 createPlan(branchId, chapterId, year, function (planId) {
                     console.log("planId set to:", planId);
                     currentPlanId = planId;
-                    loadPlanRows();
                     loadColumnVisibility(currentPlanId);
                     fetchPlanRows(currentPlanId);
                 });                
