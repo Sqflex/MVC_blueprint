@@ -83,18 +83,52 @@ function getCellValue($td) {
 }
 
 // Get visible columns
-function getVisibleColumns() {
-    let visibleCols = [];
-    $('#Prod-plan-table thead th').each(function(index) {
+function getVisibleFields() {
+    const visibleFields = new Set();
+
+    $('#Prod-plan-table thead th').each(function () {
+        const field = $(this).data('field');
+
+        console.log(field);
+
+        if (!field) return;
+
+        // fixed columns are always visible
+        if (field === 'actionBtns') {
+            visibleFields.add(field);
+        }
+
         if ($(this).is(':visible')) {
-            visibleCols.push(index);
+            visibleFields.add(field);
         }
     });
-    return visibleCols;
+
+    return visibleFields;
+}
+
+function renderActionsColumn() {
+    return $(`
+        <td class="py-4 px-6 border-b border-gray-200 text-center"
+            data-field="actionBtns"
+            data-fixed="true">
+            <div class="flex justify-center space-x-3">
+                <button id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200">
+                    <span class="material-symbols-outlined text-sm">edit</span>
+                </button>
+                <button id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                </button>
+                <div class="py-2 px-4 bg-red-500 text-white rounded-lg flex items-center gap-2">
+                    <input type="checkbox" class="row-approved-checkbox">
+                    <label>Подтверждён</label>
+                </div>
+            </div>
+        </td>
+    `);
 }
 
 function renderRow(rowData) {
-    const visibleCols = getVisibleColumns();
+    const visibleFields = getVisibleFields();
     universalId++;
 
 
@@ -120,7 +154,9 @@ function renderRow(rowData) {
     ];
 
     columns.forEach((col, index) => {
-        if (!visibleCols.includes(index)) return;
+
+        console.log(visibleFields);
+        if (!visibleFields.has(col)) return;
     
         let $td = $('<td>', {
             class: 'py-4 px-6 border-b border-gray-200 td-prop',
@@ -143,8 +179,11 @@ function renderRow(rowData) {
             $tr.append($td);
             return;
         }
+        if (col === "ActionBtns") {
+            $tr.append(renderActionsColumn());
+        }
     
-        let cellValue = rowData[col] !== null ? rowData[col] : '';
+        let cellValue = rowData[col] ?? '';
     
         if (col.toLowerCase().includes('date') || col.toLowerCase().includes('deadline')) {
             let formattedValue = formatDateToDDMMYYYY(cellValue);
@@ -184,24 +223,7 @@ function renderRow(rowData) {
         $tr.append($td);
     });
 
-    let $actionsTd = $(`
-        <td class="py-4 px-6 border-b border-gray-200 text-center">
-            <div class="flex justify-center space-x-3">
-                <button id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
-                    <span class="material-symbols-outlined text-sm">edit</span>
-                </button>
-                <button id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
-                    <span class="material-symbols-outlined text-sm">delete</span>
-                </button>
-                <div class="py-2 px-4 bg-red-500 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 flex items-center gap-2">
-                    <input type="checkbox" class="row-approved-checkbox">
-                    <label>Подтверждён</label>
-                </div>
-            </div>
-        </td>
-    `);
-
-    $tr.append($actionsTd);
+    $tr.append(renderActionsColumn());
     $('#Prod-plan-table tbody').append($tr);
 
     $tr.find('.datefield').datepicker();
@@ -212,7 +234,7 @@ function fetchPlanRows(planId) {
     universalId = 0;
 
     $.ajax({
-        url: `http://localhost:8080/api/v1/planRows/byPlan/${planId}`,
+        url: `${baseURL}/api/v1/planRows/byPlan/${planId}`,
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -239,7 +261,7 @@ $(document).on('click', '#delete-row', function () {
     if (!confirm('Вы уверены, что хотите удалить эту строку?')) return;
 
     $.ajax({
-        url: `http://localhost:8080/api/v1/planRows/${rowId}`,
+        url: `${baseURL}/api/v1/planRows/${rowId}`,
         type: 'DELETE',
         success: function () {
             $row.remove();
@@ -304,7 +326,7 @@ $(document).ready(function($) {
         };
 
         $.ajax({
-            url: `http://localhost:8080/api/v1/planRows`,
+            url: `${baseURL}/api/v1/planRows`,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(newRowBody),
@@ -438,7 +460,7 @@ $(document).on('click', '#done-row', function() {
 
 
     $.ajax({
-        url: 'http://localhost:8080/api/v1/planRows',
+        url: `${baseURL}/api/v1/planRows`,
         method: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(body),
@@ -456,4 +478,17 @@ $(document).on('click', '#done-row', function() {
     });
     
     });
+});
+
+$('#Prod-plan-table').on('change', '.row-approved-checkbox', function() {
+    const $checkboxContainer = $(this).closest('div');
+    const $row = $(this).closest('tr');
+
+    if ($(this).is(':checked')) {
+        $checkboxContainer.removeClass('bg-red-500').addClass('bg-green-600');
+        $row.removeClass('not-approved').addClass('approved');
+    } else {
+        $checkboxContainer.removeClass('bg-green-600').addClass('bg-red-500');
+        $row.removeClass('approved').addClass('not-approved');
+    }
 });

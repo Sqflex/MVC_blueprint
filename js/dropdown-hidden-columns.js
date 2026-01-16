@@ -72,7 +72,7 @@ function toggleColumn(colNumber, show) {
 function loadColumnVisibility(planId) {
     if (!planId) return;
     $.ajax({
-        url: `http://localhost:8080/api/v1/plan-columns/plan/${planId}`,
+        url: `${baseURL}/api/v1/plan-columns/plan/${planId}`,
         method: "GET",
         success: function (data) {
             if (!data || !data.length) return;
@@ -111,7 +111,7 @@ $(document).on("change", ".col-toggle", function () {
     // Update backend
     if (typeof currentPlanId !== "undefined") {
         $.ajax({
-            url: `http://localhost:8080/api/v1/plan-columns/${currentPlanId}/visibility/${field}?visibility=${isChecked}`,
+            url: `${baseURL}/api/v1/plan-columns/${currentPlanId}/visibility/${field}?visibility=${isChecked}`,
             method: "PUT",
             success: function(){
                 fetchPlanRows(currentPlanId);

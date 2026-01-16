@@ -6,7 +6,7 @@ function loadChapters(branchID) {
     console.log("Loading chapters for branch:", branchID);
 
     $.ajax({
-        url: `http://localhost:8080/api/v1/chapters/branch/${branchID}`,
+        url: `${baseURL}/api/v1/chapters/branch/${branchID}`,
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -85,15 +85,15 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "http://localhost:8080/api/v1/chapters",
+            url: `${baseURL}/api/v1/chapters`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({
                 chapterName: chapterName,
-                branchId: currentBranchID   // ✅ IMPORTANT FIX
+                branchId: currentBranchID
             }),
             success: function () {
-                loadChapters(currentBranchID); // reload list
+                loadChapters(currentBranchID);
                 $("#chapterModal").fadeOut(150);
                 $("#chapterInput").val("");
             },

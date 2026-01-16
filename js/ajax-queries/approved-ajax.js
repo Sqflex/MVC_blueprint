@@ -29,7 +29,7 @@ function initDatepickers(context) {
 
 function loadPlanRows() {
     $.ajax({
-        url: `http://localhost:8080/api/v1/lockedOnPlan/byPlan/${currentPlanId}`,
+        url: `${baseURL}/api/v1/lockedOnPlan/byPlan/${currentPlanId}`,
         method: "GET",
         success: function (response) {
             // Convert API response to array for table rendering
@@ -97,7 +97,7 @@ $("#add-approved-row").on("click", function () {
     }
 
     $.ajax({
-        url: "http://localhost:8080/api/v1/lockedOnPlan",
+        url: `${baseURL}/api/v1/lockedOnPlan`,
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -128,7 +128,7 @@ jQuery(document).ready(function($){
         if (!confirm("Удалить строку?")) return;
     
         $.ajax({
-            url: `http://localhost:8080/api/v1/lockedOnPlan/${lockedId}`,
+            url: `${baseURL}/api/v1/lockedOnPlan/${lockedId}`,
             method: "DELETE",
             success: function () {
                 $row.remove();
@@ -250,7 +250,7 @@ jQuery(document).ready(function($){
         };
     
         $.ajax({
-            url: "http://localhost:8080/api/v1/lockedOnPlan",
+            url: `${baseURL}/api/v1/lockedOnPlan`,
             method: "PUT",
             contentType: "application/json",
             data: JSON.stringify(payload),

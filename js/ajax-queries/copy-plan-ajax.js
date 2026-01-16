@@ -1,6 +1,6 @@
 $(document).on("click", ".copy-btn", function () {
     $.ajax({
-        url: `http://localhost:8080/api/v1/planRows/copyFromPreviousYear?branchId=${currentBranchID}&chapterId=${currentChapterID}&year=${currentYear}&planId=${currentPlanId}`,
+        url: `${baseURL}/api/v1/planRows/copyFromPreviousYear?branchId=${currentBranchID}&chapterId=${currentChapterID}&year=${currentYear}&planId=${currentPlanId}`,
         type: "POST",
         contentType: "application/json",
         success: function () {
