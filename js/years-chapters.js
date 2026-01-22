@@ -60,8 +60,8 @@ function loadOrCreatePlan(branchId, chapterId, year) {
             console.log('Plan loaded:', plan);
             console.log(plan.planId);
             currentPlanId = plan.planId;
-            loadPlanRows();
             loadColumnVisibility(currentPlanId);
+            loadPlanRows();
             fetchPlanRows(currentPlanId);
         },
         error: function (xhr) {
@@ -69,8 +69,8 @@ function loadOrCreatePlan(branchId, chapterId, year) {
                 createPlan(branchId, chapterId, year, function (planId) {
                     console.log("planId set to:", planId);
                     currentPlanId = planId;
-                    loadPlanRows();
                     loadColumnVisibility(currentPlanId);
+                    loadPlanRows();
                     fetchPlanRows(currentPlanId);
                 });                
             } else {

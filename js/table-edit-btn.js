@@ -89,14 +89,9 @@ function getVisibleFields() {
     $('#Prod-plan-table thead th').each(function () {
         const field = $(this).data('field');
 
-        console.log(field);
-
         if (!field) return;
 
-        // fixed columns are always visible
-        if (field === 'actionBtns') {
-            visibleFields.add(field);
-        }
+        if (field === 'actionBtns') return;
 
         if ($(this).is(':visible')) {
             visibleFields.add(field);
@@ -128,98 +123,45 @@ function renderActionsColumn() {
 }
 
 function renderRow(rowData) {
-    const visibleFields = getVisibleFields();
     universalId++;
-
 
     let $tr = $('<tr>', {
         class: 'hover:bg-gray-50 transition-colors t-row not-approved',
         'data-row-id': rowData.rowsId
     });
 
-    const columns = [
-        'rowsId', 'mainStatisticalSourceRow', 'additionalStatisticalSourceRow', 'additionalSourceDeadlineRow',
-        'workNameRow', 'workPeriodicityRow', 'industryRow', 'executorDepartmentRow', 'responsibleExecutorRow',
-        'reportingPeriodRow', 'primaryDataCollectionStartDateRow', 'primaryDataSubmissionDeadlineRow',
-        'departmentTransferToGsuDeadlineRow', 'transferToBelstatGsuDeadlineRow', 'transferTimeToBelstatRow',
-        'correctedDataToLongtermDbDeadlineRow', 'belstatWorkDeadlineRow', 'gsuWorkDeadlineRow',
-        'belstatDevelopmentBreakdownRow', 'gsuDevelopmentBreakdownRow', 'aggregatedDataRecipientDepartmentRow',
-        'belstatWorkResultRow', 'gsuWorkResultRow', 'publicationDeadlineRow', 'statusOfWorkRow', 'workDeadlineRow',
-        'executorsRow', 'coexecutorsBelstatRow', 'dataRegistrySourcesRow', 'gsuWorkPeriodicityRow',
-        'belstatWorkPeriodicityRow', 'deadlineTransferGsuToBelstatRow', 'deadlineTransferDepartmentsToGsuRow',
-        'samplingSourceRow', 'developmentBreakdownIdRow', 'contractConclusionDeadlineRow',
-        'industrialOperationStartDeadlineRow', 'contractorOrganizationRow', 'contractorExpectedOrganizationRow',
-        'infoSubmissionDeadlineToContractorRow', 'workExecutionDeadlineRow', 'belstatResponsiblePersonsChoiceRow',
-        'officialStatInfoNameRow', 'officialStatInfoPeriodicityRow', 'officialStatInfoRecipientOrgRow'
-    ];
+    const columns = ROW_FIELDS; // or your existing array of all columns
 
-    columns.forEach((col, index) => {
-
-        console.log(visibleFields);
-        if (!visibleFields.has(col)) return;
-    
+    columns.forEach(col => {
         let $td = $('<td>', {
             class: 'py-4 px-6 border-b border-gray-200 td-prop',
             'data-field': col
         });
-    
+
         let $div = $('<div>', {
             class: 'input-wrapper w-full p-2 border-gray-300 rounded-md'
         });
-    
         $td.append($div);
-    
+
         if (col === 'rowsId') {
-            let $span = $('<span>', {
-                class: 'input-field text-field font-semibold',
-                text: universalId
-            });
-    
-            $div.append($span);
+            $div.append($('<span>', { class: 'input-field text-field font-semibold', text: universalId }));
             $tr.append($td);
             return;
         }
-        if (col === "ActionBtns") {
-            $tr.append(renderActionsColumn());
-        }
-    
+
         let cellValue = rowData[col] ?? '';
-    
+
         if (col.toLowerCase().includes('date') || col.toLowerCase().includes('deadline')) {
             let formattedValue = formatDateToDDMMYYYY(cellValue);
-        
-            let $input = $('<input>', {
-                type: 'text',
-                class: 'datefield input-field',
-                value: formattedValue,
-                disabled: true
-            });
-            $div.append($input);
-        } else if (
-            col.toLowerCase().includes('choice') ||
-            col.toLowerCase().includes('result') ||
-            col.toLowerCase().includes('periodicity')
-        ) {
-            let $select = $('<select>', {
-                class: 'input-field dict-field',
-                disabled: true
-            }).append(
-                $('<option>', {
-                    value: '',
-                    text: cellValue || 'Выберите из справочника'
-                })
-            );
-            $div.append($select);
-    
+            $div.append($('<input>', { type: 'text', class: 'datefield input-field', value: formattedValue, disabled: true }));
+        } else if (col.toLowerCase().includes('choice') || col.toLowerCase().includes('result') || col.toLowerCase().includes('periodicity')) {
+            $div.append($('<select>', { class: 'input-field dict-field', disabled: true }).append(
+                $('<option>', { value: '', text: cellValue || 'Выберите из справочника' })
+            ));
         } else {
-            let $span = $('<span>', {
-                class: 'input-field text-field',
-                contenteditable: false,
-                text: cellValue
-            });
-            $div.append($span);
+            $div.append($('<span>', { class: 'input-field text-field', contenteditable: false, text: cellValue }));
         }
-    
+
         $tr.append($td);
     });
 
@@ -227,6 +169,13 @@ function renderRow(rowData) {
     $('#Prod-plan-table tbody').append($tr);
 
     $tr.find('.datefield').datepicker();
+
+    // Apply visibility after rendering
+    columns.forEach((col, index) => {
+        const colNumber = index + 1; // assuming first column is index 1
+        const show = columnVisibilityMap[colMap[colNumber]] ?? true;
+        toggleColumn(colNumber, show);
+    });
 }
 
 // Fetch all rows

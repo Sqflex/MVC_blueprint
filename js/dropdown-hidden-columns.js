@@ -71,6 +71,7 @@ function toggleColumn(colNumber, show) {
 // Load column visibility from API
 function loadColumnVisibility(planId) {
     if (!planId) return;
+
     $.ajax({
         url: `${baseURL}/api/v1/plan-columns/plan/${planId}`,
         method: "GET",
@@ -83,18 +84,28 @@ function loadColumnVisibility(planId) {
                 const field = colMap[colNumber];
                 if (!field) return;
 
+                if (field === "actionBtns") {
+                    $(this).prop("checked", true);
+                    columnVisibilityMap[field] = true;
+                    return;
+                }
+
                 const isVisible = !!columnData[field];
                 $(this).prop("checked", isVisible);
                 columnVisibilityMap[field] = isVisible;
 
                 toggleColumn(colNumber, isVisible);
             });
+
+            $('#Prod-plan-table thead th[data-field="actionBtns"]').show();
+            $('#Prod-plan-table tbody td[data-field="actionBtns"]').show();
         },
         error: function (xhr) {
             console.error("Failed to load column visibility", xhr.responseText);
         }
     });
 }
+
 
 // Checkbox change
 $(document).on("change", ".col-toggle", function () {
