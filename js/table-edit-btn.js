@@ -130,7 +130,7 @@ function renderRow(rowData) {
         'data-row-id': rowData.rowsId
     });
 
-    const columns = ROW_FIELDS; // or your existing array of all columns
+    const columns = ROW_FIELDS;
 
     columns.forEach(col => {
         let $td = $('<td>', {
