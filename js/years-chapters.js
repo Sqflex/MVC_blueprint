@@ -57,8 +57,6 @@ function loadOrCreatePlan(branchId, chapterId, year) {
         url: `${baseURL}/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
         type: 'GET',
         success: function (plan) {
-            console.log('Plan loaded:', plan);
-            console.log(plan.planId);
             currentPlanId = plan.planId;
             loadColumnVisibility(currentPlanId);
             loadPlanRows();
@@ -67,7 +65,6 @@ function loadOrCreatePlan(branchId, chapterId, year) {
         error: function (xhr) {
             if (xhr.status === 404) {
                 createPlan(branchId, chapterId, year, function (planId) {
-                    console.log("planId set to:", planId);
                     currentPlanId = planId;
                     loadColumnVisibility(currentPlanId);
                     loadPlanRows();
