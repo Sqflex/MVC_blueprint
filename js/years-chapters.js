@@ -52,7 +52,6 @@ function loadYearsFromPlans(branchId, chapterId, defaultYear) {
 }
 
 function loadOrCreatePlan(branchId, chapterId, year) {
-
     $.ajax({
         url: `${baseURL}/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
         type: 'GET',
