@@ -219,8 +219,24 @@ function renderRow(rowData) {
         $tr.append($td);
     });
 
-    $tr.append(renderActionsColumn(rowData.approved));
+    let $actionsTd = $(`
+        <td class="py-4 px-6 border-b border-gray-200 text-center">
+            <div class="flex justify-center space-x-3">
+                <button id="edit-row" class="p-2 bg-yellow-100 text-yellow-600 rounded-full hover:bg-yellow-200 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
+                    <span class="material-symbols-outlined text-sm">edit</span>
+                </button>
+                <button id="delete-row" class="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                </button>
+                <div class="py-2 px-4 bg-red-500 text-white rounded-lg shadow-sm font-medium transition-all hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 flex items-center gap-2">
+                    <input type="checkbox" class="row-approved-checkbox">
+                    <label>Подтверждён</label>
+                </div>
+            </div>
+        </td>
+    `);
 
+    $tr.append($actionsTd);
     $('#Prod-plan-table tbody').append($tr);
 
     $tr.find('.datefield').datepicker();
@@ -466,4 +482,17 @@ $('#Prod-plan-table').on('change', '.row-approved-checkbox', function () {
             alert('Ошибка при изменении статуса подтверждения');
         }
     });
+});
+
+$('#Prod-plan-table').on('change', '.row-approved-checkbox', function() {
+    const $checkboxContainer = $(this).closest('div');
+    const $row = $(this).closest('tr');
+
+    if ($(this).is(':checked')) {
+        $checkboxContainer.removeClass('bg-red-500').addClass('bg-green-600');
+        $row.removeClass('not-approved').addClass('approved');
+    } else {
+        $checkboxContainer.removeClass('bg-green-600').addClass('bg-red-500');
+        $row.removeClass('approved').addClass('not-approved');
+    }
 });

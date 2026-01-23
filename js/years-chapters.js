@@ -56,6 +56,10 @@ function loadOrCreatePlan(branchId, chapterId, year) {
         url: `${baseURL}/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
         type: 'GET',
         success: function (plan) {
+<<<<<<< HEAD
+=======
+            console.log('Plan loaded:', plan);
+>>>>>>> 13bea2cf7d16172e3dacb7b060bb0267bc8f4549
             currentPlanId = plan.planId;
             loadColumnVisibility(currentPlanId);
             loadPlanRows();
