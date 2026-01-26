@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Производственный план</title>
+        <link href='../css/style-main-improved.css' rel="stylesheet"/>
+        <link href='../jquery-ui.css' rel="stylesheet" />
+        <script src="../external/jquery/jquery.js"></script>
+        <script src="../jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $(".datefield").datepicker();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="webcrumbs">
+            <div class="w-[1200px] h-screen p-6 font-sans bg-gray-50 overflow-hidden">
+                <header class="mb-6">
+                    <div class="flex justify-between items-center mb-4 py-3 px-4 bg-white shadow-sm rounded-lg">
+                        <div class="text-gray-700 font-medium">Добро пожаловать, пользователь!</div>
+                        <div class="text-xl font-bold text-primary-600">Система управления производственными планами</div>
+                        <button
+                            class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 transition-all focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 flex items-center gap-2"
+                        >
+                            <span class="material-symbols-outlined text-sm">Выйти</span>
+                        </button>
+                    </div>
+                </header>
+                <div id="main-admin-btns" class="tabs mb-4">
+                    <button
+                        class="logs-btn px-6 py-3 bg-gray-200 text-gray-700
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                        Логи пользователей
+                    </button>
+                    <button
+                        class="roles-btn px-6 py-3 bg-gray-200 text-gray-700
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                        Выдача прав пользователям
+                    </button>
+                    <button
+                        class="reschedule-calendar-btn px-6 py-3 bg-gray-200 text-gray-700
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                        Календарь переносов
+                    </button>
+                </div>
+                <div id="logs-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
+                    <main class="w-[100%] p-6 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Логи пользователей</h2>
+                        </div>
+                    </main>
+                </div>
+                <div id="roles-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
+                    <main class="w-[100%] p-6 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Выдача прав пользователям</h2>
+                        </div>
+                    </main>
+                </div>
+                <div id="calendar-reschedule-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
+                    <main class="w-[100%] p-6 overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Календарь переносов</h2>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <script src="../js/date-filter.js" defer></script>
+    </body>
+</html>

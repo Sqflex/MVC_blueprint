@@ -1,8 +1,36 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/resources/img/fonts/material-symbols-outlined-latin-400-normal.woff2') format('woff2');
+}
 
 /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
 *,
 :after,
 :before {
@@ -157,6 +185,7 @@ progress {
 summary {
     display: list-item;
 }
+
 blockquote,
 dd,
 dl,
@@ -1108,7 +1137,6 @@ th.sortable.desc::after {
     margin-top: 8px;
 }
 
-/* Filter bar container */
 .filter-bar {
     display: flex;
     align-items: center;
@@ -1118,7 +1146,6 @@ th.sortable.desc::after {
     width: fit-content;
 }
 
-/* Inputs & selects */
 .filter-input,
 .filter-select {
     height: 36px;
@@ -1139,7 +1166,6 @@ th.sortable.desc::after {
     min-width: 70px;
 }
 
-/* Focus state */
 .filter-input:focus,
 .filter-select:focus {
     outline: none;
@@ -1147,7 +1173,6 @@ th.sortable.desc::after {
     box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
 }
 
-/* Buttons */
 .filter-btn {
     height: 36px;
     padding: 0 14px;
@@ -1167,7 +1192,6 @@ th.sortable.desc::after {
     padding-right: 24px;
 }
 
-/* Make column selector compact */
 .filter-select--column {
     max-width: 150px;
     white-space: nowrap;
@@ -1175,7 +1199,6 @@ th.sortable.desc::after {
     text-overflow: ellipsis;
 }
 
-/* Slightly tighter inputs */
 .filter-input,
 .filter-select {
     height: 34px;
@@ -1184,14 +1207,12 @@ th.sortable.desc::after {
     border-radius: 9px;
 }
 
-/* Slightly tighter buttons */
 .filter-btn {
     height: 34px;
     padding: 0 12px;
     font-size: 13px;
 }
 
-/* Buttons */
 .filter-btn {
     height: 36px;
     padding: 0 14px;
@@ -1205,7 +1226,6 @@ th.sortable.desc::after {
     align-items: center;
 }
 
-/* Apply button (blue like Export button) */
 .filter-btn--apply {
     background: #3b82f6;
     color: white;
@@ -1215,7 +1235,6 @@ th.sortable.desc::after {
     background: #2563eb;
 }
 
-/* Reset button (soft gray) */
 .filter-btn--reset {
     background: #f3f4f6;
     color: #374151;
@@ -1223,4 +1242,10 @@ th.sortable.desc::after {
 
 .filter-btn--reset:hover {
     background: #e5e7eb;
+}
+
+.user-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
 }
