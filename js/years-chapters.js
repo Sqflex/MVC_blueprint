@@ -3,11 +3,12 @@
 let currentChapterID = null;
 let currentPlanId = null;
 let currentYear = new Date().getFullYear();
+let baseURL = "http://172.16.251.93:8010";
 
 function loadYearsFromPlans(branchId, chapterId, defaultYear) {
 
     $.ajax({
-        url: `http://localhost:8080/api/v1/plans/years?branchId=${branchId}&chapterId=${chapterId}`,
+        url: `${baseURL}/api/v1/plans/years?branchId=${branchId}&chapterId=${chapterId}`,
         type: 'GET',
         dataType: 'json',
         success: function (plans) {
@@ -51,24 +52,25 @@ function loadYearsFromPlans(branchId, chapterId, defaultYear) {
 }
 
 function loadOrCreatePlan(branchId, chapterId, year) {
-
     $.ajax({
-        url: `http://localhost:8080/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
+        url: `${baseURL}/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
         type: 'GET',
         success: function (plan) {
+<<<<<<< HEAD
+=======
             console.log('Plan loaded:', plan);
+>>>>>>> 13bea2cf7d16172e3dacb7b060bb0267bc8f4549
             currentPlanId = plan.planId;
-            loadPlanRows();
             loadColumnVisibility(currentPlanId);
+            loadPlanRows();
             fetchPlanRows(currentPlanId);
         },
         error: function (xhr) {
             if (xhr.status === 404) {
                 createPlan(branchId, chapterId, year, function (planId) {
-                    console.log("planId set to:", planId);
                     currentPlanId = planId;
-                    loadPlanRows();
                     loadColumnVisibility(currentPlanId);
+                    loadPlanRows();
                     fetchPlanRows(currentPlanId);
                 });                
             } else {
@@ -80,7 +82,7 @@ function loadOrCreatePlan(branchId, chapterId, year) {
 
 function createPlan(branchId, chapterId, year, onSuccess) {
     $.ajax({
-        url: 'http://localhost:8080/api/v1/plans',
+        url: `${baseURL}/api/v1/plans`,
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -90,7 +92,7 @@ function createPlan(branchId, chapterId, year, onSuccess) {
         }),
         success: function (plan) {
             $.ajax({
-                url: `http://localhost:8080/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
+                url: `${baseURL}/api/v1/plans/unique?branchId=${branchId}&chapterId=${chapterId}&year=${year}`,
                 type: 'GET',
                 success: function (plan) {
                     console.log("Fetched after create:", plan);

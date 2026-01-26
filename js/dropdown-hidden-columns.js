@@ -71,8 +71,9 @@ function toggleColumn(colNumber, show) {
 // Load column visibility from API
 function loadColumnVisibility(planId) {
     if (!planId) return;
+
     $.ajax({
-        url: `http://localhost:8080/api/v1/plan-columns/plan/${planId}`,
+        url: `${baseURL}/api/v1/plan-columns/plan/${planId}`,
         method: "GET",
         success: function (data) {
             if (!data || !data.length) return;
@@ -83,18 +84,28 @@ function loadColumnVisibility(planId) {
                 const field = colMap[colNumber];
                 if (!field) return;
 
+                if (field === "actionBtns") {
+                    $(this).prop("checked", true);
+                    columnVisibilityMap[field] = true;
+                    return;
+                }
+
                 const isVisible = !!columnData[field];
                 $(this).prop("checked", isVisible);
                 columnVisibilityMap[field] = isVisible;
 
                 toggleColumn(colNumber, isVisible);
             });
+
+            $('#Prod-plan-table thead th[data-field="actionBtns"]').show();
+            $('#Prod-plan-table tbody td[data-field="actionBtns"]').show();
         },
         error: function (xhr) {
             console.error("Failed to load column visibility", xhr.responseText);
         }
     });
 }
+
 
 // Checkbox change
 $(document).on("change", ".col-toggle", function () {
@@ -111,7 +122,7 @@ $(document).on("change", ".col-toggle", function () {
     // Update backend
     if (typeof currentPlanId !== "undefined") {
         $.ajax({
-            url: `http://localhost:8080/api/v1/plan-columns/${currentPlanId}/visibility/${field}?visibility=${isChecked}`,
+            url: `${baseURL}/api/v1/plan-columns/${currentPlanId}/visibility/${field}?visibility=${isChecked}`,
             method: "PUT",
             success: function(){
                 fetchPlanRows(currentPlanId);

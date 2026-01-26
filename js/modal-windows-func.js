@@ -61,7 +61,7 @@ $(document).ready(function () {
     
         // POST request to create new plan
         $.ajax({
-            url: "http://localhost:8080/api/v1/plans",
+            url: `${baseURL}/api/v1/plans`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(postData),

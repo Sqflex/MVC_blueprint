@@ -1,6 +1,6 @@
 function loadBranches() {
         $.ajax({
-        url: "http://localhost:8080/api/v1/branches",
+        url: `${baseURL}/api/v1/branches`,
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "http://localhost:8080/api/v1/branches",
+            url: `${baseURL}/api/v1/branches`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({
