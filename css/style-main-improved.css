@@ -1249,3 +1249,15 @@ th.sortable.desc::after {
     justify-content: space-between;
     width: 20%;
 }
+
+#logs-window {
+    display: none;
+}
+
+#roles-window {
+    display: none;
+}
+
+#calendar-reschedule-window {
+    display: none;
+}
