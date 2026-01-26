@@ -6,7 +6,6 @@
         <title>Производственный план</title>
         <link href='../css/style-main-improved.css' rel="stylesheet"/>
         <link href='../jquery-ui.css' rel="stylesheet" />
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
         <script src="../external/jquery/jquery.js"></script>
         <script src="../jquery-ui.js"></script>
         <script>
@@ -274,7 +273,6 @@
                                         <option value="<">&lt;</option>
                                         <option value="<=">&lt;=</option>
                                     </select>
-
                                     <select id="filter-column" class="filter-select">
                                         <option value="additionalSourceDeadlineRow">Срок представления данных дополнительного источника</option>
                                         <option value="primaryDataCollectionStartDateRow">Дата начала сбора первичных статистических данных</option>
@@ -292,7 +290,6 @@
                                         <option value="infoSubmissionDeadlineToContractorRow">Срок представления необходимой информации организации-исполнителю</option>
                                         <option value="workExecutionDeadlineRow">Срок выполнения работы</option>
                                     </select>
-                                
                                     <button id="apply-date-filter" class="filter-btn filter-btn--apply">
                                         Применить
                                     </button>
@@ -436,11 +433,11 @@
                                             Исполнители (соисполнители) Белстата</th>
                                         <th id="table-head data_registry_sources_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup" data-field="dataRegistrySourcesRow">
                                             Источники формирования и ведения базы данных статистического регистра (индекс формы, иной источник)</th>
-                                        <th id="table-head gsu_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head gsu_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup" data-field="gsuWorkPeriodicityRow">
                                             Периодичность выполнения работы ГСУ</th>
-                                        <th id="table-head belstat_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head belstat_work_periodicity_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup" data-field="belstatWorkPeriodicityRow">
                                             Периодичность выполнения работы Белстатом</th>
-                                        <th id="table-head deadline_transfer_gsu_to_belstat_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup">
+                                        <th id="table-head deadline_transfer_gsu_to_belstat_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup" data-field="deadlineTransferGsuToBelstatRow">
                                             Срок передачи в Белстат ГСУ (выполнения работы ГСУ) (дата (00.00.0000), число, день)</th>
                                         <th id="table-head deadline_transfer_departments_to_gsu_col" class="sortable py-3-table px-6 text-center text-sm-table font-semibold text-gray-700 border-b" rowspan="1" colspan="1" scope="colgroup" data-field="deadlineTransferDepartmentsToGsuRow">
                                             Срок передачи в ГСУ отделами статистики ГСУ (выполнения работы отделами статистики ГСУ) (дата (00.00.0000), число, день)</th>

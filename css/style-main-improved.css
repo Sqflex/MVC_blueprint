@@ -861,7 +861,7 @@ span:focus {
 
 thead tr, thead th, thead{
     position: sticky;
-    z-index: 10;
+    z-index: 1;
     top: -25px;
 }
 
@@ -1242,4 +1242,10 @@ th.sortable.desc::after {
 
 .filter-btn--reset:hover {
     background: #e5e7eb;
+}
+
+.user-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
 }
