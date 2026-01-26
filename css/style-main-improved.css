@@ -1243,9 +1243,3 @@ th.sortable.desc::after {
 .filter-btn--reset:hover {
     background: #e5e7eb;
 }
-
-.user-btns {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-}
