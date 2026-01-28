@@ -1261,3 +1261,15 @@ th.sortable.desc::after {
 #calendar-reschedule-window {
     display: none;
 }
+
+.hidden {
+    display: none;
+}
+
+.w-1-on-3 {
+    padding-right: 10px;
+}
+
+.w-2-on-3 {
+    margin-left: 10px;
+}

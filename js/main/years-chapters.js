@@ -3,8 +3,7 @@
 let currentChapterID = null;
 let currentPlanId = null;
 let currentYear = new Date().getFullYear();
-//let baseURL = "http://172.16.251.93:8010";
-let baseURL = "http://localhost:8080";
+let baseURL = "http://172.16.251.93:8010";
 
 function loadYearsFromPlans(branchId, chapterId, defaultYear) {
 

@@ -31,7 +31,7 @@
                 <div id="main-admin-btns" class="tabs mb-4">
                     <button
                         class="admin-btn logs-btn px-6 py-3 bg-gray-200 text-gray-700
-                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 active">
+                        font-medium rounded-t-lg ml-2 transition-all hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
                         Логи пользователей
                     </button>
                     <button
@@ -45,10 +45,66 @@
                         Календарь переносов
                     </button>
                 </div>
-                <div id="logs-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden"> 
+                <div id="logs-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
                     <main class="w-[100%] p-6 overflow-y-auto">
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Логи пользователей</h2>
+                            <div class="flex gap-3">
+                                <div id="date-filter-controls" class="filter-bar">
+                                    <select id="user-select" class="px-3 py-2 border rounded filter-select">
+                                        <option>Все пользователи</option>
+                                    </select>
+
+                                    <select id="actions-select" class="px-3 py-2 border rounded filter-select">
+                                        <option>Все действия</option>
+                                    </select>
+
+                                    <input type="text" id="filter-date" placeholder="Дата" class="filter-input datefield" autocomplete="off">
+                                    <span>-</span>
+                                    <input type="text" id="filter-date" placeholder="Дата" class="filter-input datefield" autocomplete="off">
+                                    <button id="apply-date-filter" class="filter-btn filter-btn--apply">
+                                        Применить
+                                    </button>
+
+                                    <button id="reset-date-filter" class="filter-btn filter-btn--reset">
+                                        Сброс
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <table id="logs-table" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                                <thead class="sticky-head">
+                                    <tr class="bg-gray-100">
+                                        <th id="table-head created_at" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup" data-field="created_at">
+                                            Дата</th>
+                                        <th id="table-head user_name" class="sortable sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700" rowspan="3" colspan="1" scope="colgroup" data-field="user_name">
+                                            Пользователь
+                                        </th>
+                                        <th id="table-head action_type" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup" data-field="action_type">
+                                            Действие</th>
+                                        <th id="table-head prod-plan-unique" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="3" colspan="1" scope="colgroup" data-field="prod-plan-unique">
+                                            План</th>
+                                        <th id="table-head details" class="sortable py-3-table px-6-table text-left text-sm-table font-semibold text-gray-700 border-b" rowspan="5" colspan="1" scope="colgroup" data-field="details">
+                                            Детали</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="p-3">12.01.2026 14:32</td>
+                                        <td class="p-3">Иванов И.И.</td>
+                                        <td class="p-3">
+                                            <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">
+                                                APPROVE
+                                            </span>
+                                        </td>
+                                        <td class="p-3">Экономическая статистика - Статистика труда - 2026</td>
+                                        <td class="p-3">
+                                            <button class="text-primary-600">Редактирование</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </main>
                 </div>
@@ -57,6 +113,84 @@
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Выдача прав пользователям</h2>
                         </div>
+                        <div class="flex h-full gap-6">
+                            <div class="w-1-on-3 border-r pr-4">
+                                <h3 class="font-semibold mb-3">Пользователи</h3>
+                                <ul class="space-y-2">
+                                    <li class="p-3 rounded cursor-pointer hover:bg-gray-100 user-item"
+                                    data-user-id="1">
+                                    Иванов И.И.
+                                    </li>
+                                    <li class="p-3 rounded cursor-pointer hover:bg-gray-100 user-item" data-user-id="2">
+                                        Петров П.П.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-2-on-3" id="user-permissions-panel">
+
+                                <!-- Заглушка, пока пользователь не выбран -->
+                                <div id="no-user-selected" class="text-gray-400 text-center mt-20">
+                                    Выберите пользователя для настройки прав
+                                </div>
+                            
+                                <!-- Контент выбранного пользователя -->
+                                <div id="permissions-content" class="hidden">
+                            
+                                    <!-- Роли -->
+                                    <h3 class="font-semibold mb-4">Роли</h3>
+                                    <div class="space-y-2 mb-6">
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="role-checkbox" value="ADMIN">
+                                            Администратор
+                                        </label>
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="role-checkbox" value="ANALYST">
+                                            Аналитик
+                                        </label>
+                                        <label class="flex items-center gap-2">
+                                            <input type="checkbox" class="role-checkbox" value="EXECUTOR">
+                                            Исполнитель
+                                        </label>
+                                    </div>
+                            
+                                    <h3 class="font-semibold mb-3">Доступ к производственным планам</h3>
+                                    <br>
+                            
+                                    <!-- Фильтры -->
+                                    <div class="flex gap-4 mb-4">
+                                        <select id="branch-select" class="px-3 py-2 border rounded w-1/2">
+                                            <option value="">Все разделы</option>
+                                        </select>
+                            
+                                        <select id="chapter-select" class="px-3 py-2 border rounded w-1/2">
+                                            <option value="">Все главы</option>
+                                        </select>
+                                    </div>
+                            
+                                    <!-- Таблица планов -->
+                                    <div class="border rounded">
+                                        <table class="w-full text-sm">
+                                            <thead>
+                                                <tr class="bg-gray-100">
+                                                    <th class="p-3 text-left">План</th>
+                                                    <th class="p-3 text-center">Редактировать</th>
+                                                    <th class="p-3 text-center">Утверждать</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="plans-permissions-body">
+                                                <!-- JS рендерит строки -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            
+                                    <button
+                                        id="save-user-permissions"
+                                        class="mt-6 px-6 py-2 bg-primary-600 text-white rounded hover:bg-primary-700">
+                                        Сохранить изменения
+                                    </button>
+                                </div>
+                            </div>                            
+                        </div>
                     </main>
                 </div>
                 <div id="calendar-reschedule-window" class="flex h-[calc(100vh-220px)] bg-white rounded-lg shadow-lg overflow-hidden">
@@ -64,11 +198,35 @@
                         <div class="flex justify-between items-center mb-6">
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Календарь переносов</h2>
                         </div>
+                        <div class="mb-6 flex gap-4 items-center">
+                            <input type="date" class="px-3 py-2 border rounded">
+                            <button class="px-4 py-2 bg-primary-600 text-white rounded hover:bg-primary-700">
+                                Добавить дату
+                            </button>
+                        </div>
+                        
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 text-left">Дата переноса</th>
+                                    <th class="p-3 text-right">Действие</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-3">15.03.2026</td>
+                                    <td class="p-3 text-right">
+                                        <button class="text-red-500 hover:underline">Удалить</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </main>
                 </div>
             </div>
         </div>
         <script src="../js/date-filter.js" defer></script>
         <script src="../js/admin-panel/admin-btns.js" defer></script>
+        <script src="../js/admin-panel/user-select.js" defer></script>
     </body>
 </html>
