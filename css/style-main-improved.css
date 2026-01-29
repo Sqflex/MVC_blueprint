@@ -1114,7 +1114,8 @@ th.sortable {
 }
 
 th.sortable::after {
-    content: "⇅";
+    content: "\21C5"; /* ⇅ */
+    font-family: Arial, sans-serif !important;
     position: absolute;
     right: 6px;
     top: 50%;
@@ -1124,12 +1125,12 @@ th.sortable::after {
 }
 
 th.sortable.asc::after {
-    content: "↑";
+    content: "\2191"; /* ↑ */
     opacity: 1;
 }
 
 th.sortable.desc::after {
-    content: "↓";
+    content: "\2193"; /* ↓ */
     opacity: 1;
 }
 
@@ -1246,20 +1247,12 @@ th.sortable.desc::after {
 
 .user-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 20%;
 }
 
-#logs-window {
-    display: none;
-}
-
-#roles-window {
-    display: none;
-}
-
-#calendar-reschedule-window {
-    display: none;
+.user-btns button {
+    margin-left: 10px;
 }
 
 .hidden {
@@ -1272,4 +1265,8 @@ th.sortable.desc::after {
 
 .w-2-on-3 {
     margin-left: 10px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

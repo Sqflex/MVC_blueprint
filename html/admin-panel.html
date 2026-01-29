@@ -21,11 +21,15 @@
                     <div class="flex justify-between items-center mb-4 py-3 px-4 bg-white shadow-sm rounded-lg">
                         <div class="text-gray-700 font-medium">Добро пожаловать, пользователь!</div>
                         <div class="text-xl font-bold text-primary-600">Система управления производственными планами</div>
-                        <button
-                            class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 transition-all focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 flex items-center gap-2"
-                        >
-                            <span class="material-symbols-outlined text-sm">Выйти</span>
-                        </button>
+                        <div class="user-btns">
+                            <button onclick="window.location.href='mainPage-improved.html'"
+                            class="px-4 py-2 bg-green-600 text-white hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 flex items-center gap-2">
+                                <span>На главную</span>
+                            </button>
+                            <button class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 transition-all focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50 flex items-center gap-2">
+                                <span>Выйти</span>
+                            </button>
+                        </div>
                     </div>
                 </header>
                 <div id="main-admin-btns" class="tabs mb-4">
@@ -128,15 +132,12 @@
                             </div>
                             <div class="w-2-on-3" id="user-permissions-panel">
 
-                                <!-- Заглушка, пока пользователь не выбран -->
                                 <div id="no-user-selected" class="text-gray-400 text-center mt-20">
                                     Выберите пользователя для настройки прав
                                 </div>
                             
-                                <!-- Контент выбранного пользователя -->
                                 <div id="permissions-content" class="hidden">
                             
-                                    <!-- Роли -->
                                     <h3 class="font-semibold mb-4">Роли</h3>
                                     <div class="space-y-2 mb-6">
                                         <label class="flex items-center gap-2">
@@ -145,18 +146,32 @@
                                         </label>
                                         <label class="flex items-center gap-2">
                                             <input type="checkbox" class="role-checkbox" value="ANALYST">
-                                            Аналитик
+                                            Модератор
                                         </label>
                                         <label class="flex items-center gap-2">
                                             <input type="checkbox" class="role-checkbox" value="EXECUTOR">
-                                            Исполнитель
+                                            Редактор раздела
                                         </label>
+                                    </div>
+                                    <div class="border rounded p-4 mb-6 bg-gray-50">
+                                        <h4 class="font-semibold mb-3">Права на выбранный уровень</h4>
+
+                                        <div class="flex gap-6">
+                                            <label class="flex items-center gap-2">
+                                                <input type="checkbox" id="level-can-edit">
+                                                Редактировать
+                                            </label>
+
+                                            <label class="flex items-center gap-2">
+                                                <input type="checkbox" id="level-can-approve">
+                                                Утверждать
+                                            </label>
+                                        </div>
                                     </div>
                             
                                     <h3 class="font-semibold mb-3">Доступ к производственным планам</h3>
                                     <br>
                             
-                                    <!-- Фильтры -->
                                     <div class="flex gap-4 mb-4">
                                         <select id="branch-select" class="px-3 py-2 border rounded w-1/2">
                                             <option value="">Все разделы</option>
@@ -167,7 +182,6 @@
                                         </select>
                                     </div>
                             
-                                    <!-- Таблица планов -->
                                     <div class="border rounded">
                                         <table class="w-full text-sm">
                                             <thead>
@@ -178,7 +192,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="plans-permissions-body">
-                                                <!-- JS рендерит строки -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -199,7 +212,9 @@
                             <h2 id="edit-title" class="text-2xl font-bold text-gray-800">Календарь переносов</h2>
                         </div>
                         <div class="mb-6 flex gap-4 items-center">
-                            <input type="date" class="px-3 py-2 border rounded">
+                            <input type="text" id="reschedule-date-from" placeholder="Дата" class="filter-input datefield" autocomplete="off">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                            <input type="text" id="reschedule-date-to" placeholder="Дата" class="filter-input datefield" autocomplete="off">
                             <button class="px-4 py-2 bg-primary-600 text-white rounded hover:bg-primary-700">
                                 Добавить дату
                             </button>
@@ -208,15 +223,36 @@
                         <table class="w-full text-sm">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="p-3 text-left">Дата переноса</th>
-                                    <th class="p-3 text-right">Действие</th>
+                                    <th class="sortable py-3-table px-6-table text-right text-sm-table font-semibold text-gray-700 border-b">Дата переноса С</th>
+                                    <th class="sortable py-3-table px-6-table text-right text-sm-table font-semibold text-gray-700 border-b">Дата переноса НА</th>
+                                    <th class="py-3-table px-6-table text-right text-sm-table font-semibold text-gray-700 border-b">Действие</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b">
-                                    <td class="p-3">15.03.2026</td>
-                                    <td class="p-3 text-right">
-                                        <button class="text-red-500 hover:underline">Удалить</button>
+                                    <td class="py-4 px-6 border-b border-gray-200 td-prop">
+                                        <div class="input-wrapper w-full p-2 border-gray-300 rounded-md">
+                                            <input type="text" class="datefield input-field hasDatepicker" value="01.02.2026">
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6 border-b border-gray-200 td-prop">
+                                        <div class="input-wrapper w-full p-2 border-gray-300 rounded-md">
+                                            <input type="text" class="datefield input-field hasDatepicker" value="02.02.2026">
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6 border-b border-gray-200 td-prop">
+                                        <div class="flex justify-center space-x-3">
+                                            <button id="edit-row" disabled="" class="p-2 bg-yellow-100 text-yellow-600 rounded-full
+                                                            hover:bg-yellow-200 disabled:opacity-40
+                                                            disabled:cursor-not-allowed">
+                                                <span class="material-symbols-outlined text-sm">edit</span>
+                                            </button>
+                                            <button id="delete-row" disabled="" class="p-2 bg-red-100 text-red-600 rounded-full
+                                                            hover:bg-red-200 disabled:opacity-40
+                                                            disabled:cursor-not-allowed">
+                                                <span class="material-symbols-outlined text-sm">delete</span>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -225,6 +261,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="flex justify-center space-x-3">
+            <button id="edit-row" disabled="" class="p-2 bg-yellow-100 text-yellow-600 rounded-full
+                            hover:bg-yellow-200 disabled:opacity-40
+                            disabled:cursor-not-allowed">
+                <span class="material-symbols-outlined text-sm">edit</span>
+            </button>
+            <button id="delete-row" disabled="" class="p-2 bg-red-100 text-red-600 rounded-full
+                            hover:bg-red-200 disabled:opacity-40
+                            disabled:cursor-not-allowed">
+                <span class="material-symbols-outlined text-sm">delete</span>
+            </button>
+        </div>
+
         <script src="../js/date-filter.js" defer></script>
         <script src="../js/admin-panel/admin-btns.js" defer></script>
         <script src="../js/admin-panel/user-select.js" defer></script>
